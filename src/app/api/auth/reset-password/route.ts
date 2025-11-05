@@ -4,20 +4,26 @@ export async function POST(request: NextRequest) {
   try {
     const { token, password } = await request.json();
 
-    // TODO: Implement actual password reset logic
-    // This is a mock implementation
-    
-    // In production, you would:
-    // 1. Verify token is valid and not expired
-    // 2. Hash new password
-    // 3. Update password in database
-    // 4. Invalidate reset token
-    
-    console.log(`Password reset for token: ${token}`);
-
-    return NextResponse.json({
-      message: 'Password reset successfully',
+    // Gọi API backend
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+    const response = await fetch(`${backendUrl}/auth/reset-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token, password }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: data.message || 'Failed to reset password' },
+        { status: response.status }
+      );
+    }
+
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Reset password error:', error);
     return NextResponse.json(

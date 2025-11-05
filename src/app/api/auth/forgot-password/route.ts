@@ -4,20 +4,26 @@ export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json();
 
-    // TODO: Implement actual password reset logic
-    // This is a mock implementation
-    
-    // In production, you would:
-    // 1. Verify email exists
-    // 2. Generate secure reset token
-    // 3. Store token in database with expiration
-    // 4. Send email with reset link
-    
-    console.log(`Password reset requested for: ${email}`);
-
-    return NextResponse.json({
-      message: 'Password reset email sent successfully',
+    // Gọi API backend
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+    const response = await fetch(`${backendUrl}/auth/forgot-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: data.message || 'Failed to send reset email' },
+        { status: response.status }
+      );
+    }
+
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Forgot password error:', error);
     return NextResponse.json(

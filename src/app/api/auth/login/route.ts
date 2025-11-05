@@ -4,56 +4,26 @@ export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
 
-    // TODO: Implement actual authentication logic
-    // This is a mock implementation for demonstration
-
-    // Mock user data
-    const mockUsers = [
-      {
-        id: '1',
-        email: 'admin@ics.com',
-        password: 'admin123',
-        firstName: 'Admin',
-        lastName: 'ICS',
-        role: 'admin',
-        country: 'Vietnam',
-        companyName: 'ICS Security',
-        position: 'Administrator',
+    // Gọi API backend
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+    const response = await fetch(`${backendUrl}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-      {
-        id: '2',
-        email: 'user@ics.com',
-        password: 'user123',
-        firstName: 'John',
-        lastName: 'Doe',
-        role: 'user',
-        country: 'Vietnam',
-        companyName: 'ICS',
-        position: 'Developer',
-        androidTimes: 45,
-        iosTimes: 50,
-      },
-    ];
+      body: JSON.stringify({ email, password }),
+    });
 
-    const user = mockUsers.find(u => u.email === email && u.password === password);
+    const data = await response.json();
 
-    if (!user) {
+    if (!response.ok) {
       return NextResponse.json(
-        { message: 'Invalid email or password' },
-        { status: 401 }
+        { message: data.message || 'Invalid email or password' },
+        { status: response.status }
       );
     }
 
-    // Generate mock token
-    const token = Buffer.from(`${user.id}:${Date.now()}`).toString('base64');
-
-    // Remove password from response
-    const { password: _, ...userWithoutPassword } = user;
-
-    return NextResponse.json({
-      token,
-      user: userWithoutPassword,
-    });
+    return NextResponse.json(data);
   } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json(
