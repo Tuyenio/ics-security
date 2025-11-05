@@ -267,14 +267,14 @@ const Header: React.FC<HeaderProps> = ({ user: propUser, onLogout }) => {
 
                   <div className="p-2">
                     <a
-                      href="/user/dashboard"
+                      href={user?.role === 'admin' ? '/admin/dashboard' : '/user/dashboard'}
                       className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
                     >
                       <User className="w-4 h-4" />
                       <span className="text-sm">Profile</span>
                     </a>
                     <a
-                      href="/user/change-password"
+                      href={user?.role === 'admin' ? '/admin/settings' : '/user/change-password'}
                       className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
                     >
                       <Settings className="w-4 h-4" />

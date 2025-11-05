@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Plus, Search, Edit2, Trash2, Key, Filter } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
@@ -11,45 +11,40 @@ import UserModal from '@/components/ui/UserModal';
 import { User } from '@/types';
 
 export default function UserManagementPage() {
-  const [users, setUsers] = useState<User[]>([
-    {
-      id: '1',
-      email: 'john.doe@example.com',
-      firstName: 'John',
-      lastName: 'Doe',
-      role: 'user',
-      country: 'Vietnam',
-      companyName: 'Tech Corp',
-      position: 'Developer',
-      androidTimes: 45,
-      iosTimes: 50,
-      createdAt: '2025-01-15',
-      updatedAt: '2025-11-05',
-      lastLogin: '2025-11-05T10:30:00',
-    },
-    {
-      id: '2',
-      email: 'jane.smith@example.com',
-      firstName: 'Jane',
-      lastName: 'Smith',
-      role: 'user',
-      country: 'USA',
-      companyName: 'Security Inc',
-      position: 'Manager',
-      androidTimes: 30,
-      iosTimes: 40,
-      createdAt: '2025-02-20',
-      updatedAt: '2025-11-04',
-      lastLogin: '2025-11-04T15:20:00',
-    },
-  ]);
-
+  const [users, setUsers] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState<'all' | 'admin' | 'user'>('all');
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
+
+  // Fetch users from API
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      setIsLoading(true);
+      const token = localStorage.getItem('token');
+      const response = await fetch('/api/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUsers(data);
+      }
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const filteredUsers = users.filter(user => {
     const matchesSearch = 
@@ -91,7 +86,7 @@ export default function UserManagementPage() {
       });
 
       if (response.ok) {
-        setUsers(users.filter(u => u.id !== selectedUser.id));
+        await fetchUsers();
         setIsDeleteModalOpen(false);
       }
     } catch (error) {
@@ -114,15 +109,12 @@ export default function UserManagementPage() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        
-        if (modalMode === 'create') {
-          setUsers([...users, { ...formData, id: data.id, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }]);
-        } else {
-          setUsers(users.map(u => u.id === selectedUser?.id ? { ...u, ...formData, updatedAt: new Date().toISOString() } : u));
-        }
-        
+        // Refresh users list from server
+        await fetchUsers();
         setIsUserModalOpen(false);
+      } else {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to save user');
       }
     } catch (error) {
       console.error('Error saving user:', error);
@@ -148,8 +140,14 @@ export default function UserManagementPage() {
         </div>
       </motion.div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      {isLoading ? (
+        <div className="flex items-center justify-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        </div>
+      ) : (
+        <>
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
           { label: 'Total Users', value: users.length, color: 'from-blue-600 to-cyan-500' },
           { label: 'Admin Users', value: users.filter(u => u.role === 'admin').length, color: 'from-purple-600 to-pink-500' },
@@ -306,6 +304,8 @@ export default function UserManagementPage() {
           </CardContent>
         </Card>
       </motion.div>
+        </>
+      )}
 
       {/* Modals */}
       <UserModal
