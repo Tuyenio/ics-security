@@ -1,0 +1,63 @@
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Header from '@/components/layout/Header';
+import Sidebar from '@/components/layout/Sidebar';
+import { User } from '@/types';
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    // Check authentication
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+
+    if (!token || !userData) {
+      router.push('/auth/login');
+      return;
+    }
+
+    const parsedUser = JSON.parse(userData);
+    
+    // Check if user has admin role
+    if (parsedUser.role !== 'admin') {
+      router.push('/user/dashboard');
+      return;
+    }
+
+    setUser(parsedUser);
+  }, [router]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/auth/login');
+  };
+
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center gradient-bg">
+        <div className="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a0e27]">
+      <Header user={user} onLogout={handleLogout} />
+      <div className="flex">
+        <Sidebar role="admin" />
+        <main className="flex-1 p-6 overflow-y-auto h-[calc(100vh-4rem)]">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+}

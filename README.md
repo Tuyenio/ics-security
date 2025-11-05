@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ICS Security Platform 🛡️
 
-## Getting Started
+Hệ thống quản lý an ninh mạng chuyên nghiệp với giao diện hiện đại và đầy đủ tính năng.
 
-First, run the development server:
+## ✨ Tính năng
+
+### 🔐 Authentication
+- Đăng nhập
+- Quên mật khẩu
+- Đặt lại mật khẩu
+- **Không có đăng ký** (Admin tạo tài khoản)
+
+### 👤 User Portal
+- **User Center**: Thông tin tài khoản, thống kê
+- **Source Code Analysis**: Phân tích mã nguồn (ZIP, max 2GB)
+- **Compatibility**: Kiểm tra tương thích Android (APK/AAB)
+- **AppTotalGo**: Quét bảo mật ứng dụng
+- **APK Protect**: Bảo vệ ứng dụng Android
+- **iOS Protect**: Bảo vệ ứng dụng iOS
+- **Malware Intelligence**: Tin tức mã độc mới nhất
+- **Change Password**: Đổi mật khẩu bảo mật
+
+### 👨‍💼 Admin Portal
+- **Dashboard**: Tổng quan hệ thống
+- **User Management**: 
+  - Tạo/Sửa/Xóa người dùng
+  - Phân quyền chi tiết
+  - Tìm kiếm và lọc
+- **Analytics**: Thống kê chi tiết
+- Truy cập tất cả tính năng User
+
+## 🚀 Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Cài đặt dependencies
+pnpm install
+
+# Chạy development
 pnpm dev
-# or
-bun dev
+
+# Mở http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔑 Demo Accounts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Admin:**
+- Email: `admin@ics.com`
+- Password: `admin123`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**User:**
+- Email: `user@ics.com`
+- Password: `user123`
 
-## Learn More
+## 🎨 Thiết kế
 
-To learn more about Next.js, take a look at the following resources:
+- **Theme**: Dark mode, Cybersecurity (Blue/Cyan gradients)
+- **UI**: Modern, professional, enterprise-level
+- **Animations**: Framer Motion
+- **Effects**: Glass morphism, hover effects, smooth transitions
+- **Responsive**: Mobile, Tablet, Desktop
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- Lucide Icons
+- React Hook Form + Zod
 
-## Deploy on Vercel
+## 📚 Tài liệu
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Xem [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md) để biết chi tiết về:
+- Cấu trúc dự án
+- API endpoints
+- Customization
+- Production deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Pages
+
+- `/` - Home (auto redirect)
+- `/auth/login` - Đăng nhập
+- `/auth/forgot-password` - Quên mật khẩu
+- `/auth/reset-password` - Đặt lại mật khẩu
+- `/user/dashboard` - User dashboard
+- `/admin/dashboard` - Admin dashboard
+- `/admin/users` - Quản lý users
+
+## 🔒 Security Features
+
+- Password validation (8+ chars, uppercase, lowercase, number, special char)
+- Token-based authentication
+- Role-based access control (RBAC)
+- Protected routes
+- File upload validation
+
+## 📝 Notes
+
+- Mock APIs (cần thay bằng real backend)
+- LocalStorage cho auth (production nên dùng httpOnly cookies)
+- File uploads cần cloud storage integration
+- Tất cả structure đã sẵn sàng cho production
+
+## 📄 License
+
+© 2025 ICS Security. All Rights Reserved.
+
