@@ -113,7 +113,17 @@ const UserModal: React.FC<UserModalProps> = ({
     setIsLoading(true);
 
     try {
-      await onSubmit(formData);
+      // Remove email field when editing (email cannot be changed)
+      const submitData = mode === 'edit' 
+        ? { ...formData, email: undefined }
+        : formData;
+      
+      // Remove undefined fields
+      const cleanData = Object.fromEntries(
+        Object.entries(submitData).filter(([_, v]) => v !== undefined)
+      );
+      
+      await onSubmit(cleanData as UserFormData);
       onClose();
     } catch (error) {
       console.error('Error submitting form:', error);

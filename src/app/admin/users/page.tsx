@@ -88,9 +88,16 @@ export default function UserManagementPage() {
       if (response.ok) {
         await fetchUsers();
         setIsDeleteModalOpen(false);
+        // Show success message (optional)
+        console.log('User deleted successfully');
+      } else {
+        const error = await response.json();
+        console.error('Failed to delete user:', error.message);
+        alert(`Failed to delete user: ${error.message || 'Unknown error'}`);
       }
     } catch (error) {
       console.error('Error deleting user:', error);
+      alert('An error occurred while deleting the user. Please try again.');
     }
   };
 
@@ -112,12 +119,15 @@ export default function UserManagementPage() {
         // Refresh users list from server
         await fetchUsers();
         setIsUserModalOpen(false);
+        console.log(`User ${modalMode === 'create' ? 'created' : 'updated'} successfully`);
       } else {
         const error = await response.json();
+        console.error('Failed to save user:', error.message);
         throw new Error(error.message || 'Failed to save user');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving user:', error);
+      alert(error.message || 'An error occurred. Please try again.');
       throw error;
     }
   };
