@@ -6,6 +6,8 @@ import { Users, Plus, Search, Edit2, Trash2, Key, Filter } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import ConfirmModal from '@/components/ui/ConfirmModal';
+import UserModal from '@/components/ui/UserModal';
 import { User } from '@/types';
 
 export default function UserManagementPage() {
@@ -44,7 +46,10 @@ export default function UserManagementPage() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState<'all' | 'admin' | 'user'>('all');
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
 
   const filteredUsers = users.filter(user => {
     const matchesSearch = 
@@ -58,12 +63,70 @@ export default function UserManagementPage() {
   });
 
   const handleCreateUser = () => {
-    setIsCreateModalOpen(true);
+    setModalMode('create');
+    setSelectedUser(null);
+    setIsUserModalOpen(true);
   };
 
-  const handleDeleteUser = (userId: string) => {
-    if (confirm('Are you sure you want to delete this user?')) {
-      setUsers(users.filter(u => u.id !== userId));
+  const handleEditUser = (user: User) => {
+    setModalMode('edit');
+    setSelectedUser(user);
+    setIsUserModalOpen(true);
+  };
+
+  const handleDeleteClick = (user: User) => {
+    setSelectedUser(user);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!selectedUser) return;
+    
+    try {
+      const response = await fetch(`/api/users/${selectedUser.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      if (response.ok) {
+        setUsers(users.filter(u => u.id !== selectedUser.id));
+        setIsDeleteModalOpen(false);
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  const handleUserSubmit = async (formData: any) => {
+    try {
+      const url = modalMode === 'create' ? '/api/users' : `/api/users/${selectedUser?.id}`;
+      const method = modalMode === 'create' ? 'POST' : 'PUT';
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        
+        if (modalMode === 'create') {
+          setUsers([...users, { ...formData, id: data.id, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }]);
+        } else {
+          setUsers(users.map(u => u.id === selectedUser?.id ? { ...u, ...formData, updatedAt: new Date().toISOString() } : u));
+        }
+        
+        setIsUserModalOpen(false);
+      }
+    } catch (error) {
+      console.error('Error saving user:', error);
+      throw error;
     }
   };
 
@@ -213,6 +276,7 @@ export default function UserManagementPage() {
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-2">
                             <button
+                              onClick={() => handleEditUser(user)}
                               className="p-2 hover:bg-blue-500/10 rounded-lg text-blue-400 hover:text-blue-300 transition-colors"
                               title="Edit User"
                             >
@@ -225,7 +289,7 @@ export default function UserManagementPage() {
                               <Key className="w-4 h-4" />
                             </button>
                             <button
-                              onClick={() => handleDeleteUser(user.id)}
+                              onClick={() => handleDeleteClick(user)}
                               className="p-2 hover:bg-red-500/10 rounded-lg text-red-400 hover:text-red-300 transition-colors"
                               title="Delete User"
                             >
@@ -242,6 +306,26 @@ export default function UserManagementPage() {
           </CardContent>
         </Card>
       </motion.div>
+
+      {/* Modals */}
+      <UserModal
+        isOpen={isUserModalOpen}
+        onClose={() => setIsUserModalOpen(false)}
+        onSubmit={handleUserSubmit}
+        user={selectedUser as any}
+        mode={modalMode}
+      />
+
+      <ConfirmModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleDeleteConfirm}
+        title="Delete User"
+        message={`Are you sure you want to delete ${selectedUser?.firstName} ${selectedUser?.lastName}? This action cannot be undone.`}
+        type="danger"
+        confirmText="Delete"
+        cancelText="Cancel"
+      />
     </div>
   );
 }

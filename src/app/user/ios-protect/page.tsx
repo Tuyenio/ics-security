@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Download, RefreshCw, Apple } from 'lucide-react';
+import { ShieldCheck, Download, RefreshCw, Apple, CheckCircle, Upload } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { UploadedFile } from '@/types';
@@ -16,7 +16,28 @@ export default function iOSProtectPage() {
     const k = 1024;
     const sizes = ['Bytes', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + sizes[i];
+  };
+
+  const formatDateTime = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    }).replace(',', '');
+  };
+
+  const handleRefresh = () => {
+    console.log('Refreshing...');
+  };
+
+  const handleFileUpload = () => {
+    console.log('Upload iOS app...');
   };
 
   return (
@@ -34,24 +55,29 @@ export default function iOSProtectPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>iOS Application Protection</CardTitle>
-                <CardDescription>Remaining Times: {timesRemaining}</CardDescription>
+                <CardDescription>Remaining Times: <span className="text-white font-semibold">{timesRemaining}</span></CardDescription>
               </div>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleRefresh}>
                 <RefreshCw className="w-4 h-4 mr-2" />
                 Refresh
               </Button>
             </div>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center justify-center p-12 border-2 border-dashed border-slate-700 rounded-lg">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center mx-auto mb-4">
+            <div 
+              className="border-2 border-dashed border-slate-700 rounded-lg p-12 text-center hover:border-purple-500 transition-colors cursor-pointer"
+              onClick={handleFileUpload}
+            >
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
                   <Apple className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-white font-semibold mb-2">iOS Protection Service</p>
-                <p className="text-sm text-slate-400">
-                  Contact support to enable iOS protection for your applications
-                </p>
+                <div>
+                  <p className="text-white font-semibold mb-1">Upload iOS Application</p>
+                  <p className="text-sm text-slate-400">
+                    Drag and drop or click to upload IPA file
+                  </p>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -71,19 +97,59 @@ export default function iOSProtectPage() {
                     <th className="text-left py-3 px-4 text-slate-400 font-medium">Filename</th>
                     <th className="text-left py-3 px-4 text-slate-400 font-medium">File Size</th>
                     <th className="text-left py-3 px-4 text-slate-400 font-medium">Version</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Create Time</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Finish Time</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Createtime</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Finishtime</th>
                     <th className="text-left py-3 px-4 text-slate-400 font-medium">Status</th>
                     <th className="text-left py-3 px-4 text-slate-400 font-medium">Download</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td colSpan={7} className="text-center py-12">
-                      <ShieldCheck className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                      <p className="text-slate-400">No protected files yet</p>
-                    </td>
-                  </tr>
+                  {files.length === 0 ? (
+                    <tr>
+                      <td colSpan={7} className="text-center py-12">
+                        <ShieldCheck className="w-12 h-12 text-slate-600 mx-auto mb-3" />
+                        <p className="text-slate-400">No protected files yet</p>
+                      </td>
+                    </tr>
+                  ) : (
+                    files.map((file, index) => (
+                      <motion.tr
+                        key={file.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="border-b border-slate-800 hover:bg-slate-800/30"
+                      >
+                        <td className="py-3 px-4">
+                          <a href="#" className="text-blue-400 hover:text-blue-300 hover:underline">
+                            {file.filename}
+                          </a>
+                        </td>
+                        <td className="py-3 px-4 text-slate-300">{formatFileSize(file.fileSize)}</td>
+                        <td className="py-3 px-4 text-slate-300">{file.version}</td>
+                        <td className="py-3 px-4 text-slate-300 text-sm">{formatDateTime(file.createTime)}</td>
+                        <td className="py-3 px-4 text-slate-300 text-sm">
+                          {file.finishTime ? formatDateTime(file.finishTime) : '-'}
+                        </td>
+                        <td className="py-3 px-4">
+                          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-500/50 inline-flex items-center gap-1">
+                            <CheckCircle className="w-3 h-3" />
+                            Completed
+                          </span>
+                        </td>
+                        <td className="py-3 px-4">
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            className="bg-green-600 hover:bg-green-700"
+                          >
+                            <Download className="w-4 h-4 mr-1" />
+                            Download
+                          </Button>
+                        </td>
+                      </motion.tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
