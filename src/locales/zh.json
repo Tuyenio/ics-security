@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "signIn": "登录"
+  },
+  "hero": {
+    "badge": "🔒 越南领先的移动应用安全平台",
+    "title": "保护应用程序",
+    "titleGradient": "坚如磐石",
+    "description": "采用最先进技术的Android和iOS应用程序综合安全解决方案。防逆向工程、恶意软件检测和24/7源代码保护。",
+    "getStarted": "立即开始",
+    "contactSales": "联系咨询",
+    "certifications": {
+      "iso": "ISO 27001认证",
+      "owasp": "OWASP合规",
+      "uptime": "99.9% SLA正常运行时间"
+    }
+  },
+  "stats": {
+    "apps": "受保护的应用程序",
+    "reliability": "系统可靠性",
+    "support": "技术支持",
+    "clients": "企业客户"
+  },
+  "services": {
+    "badge": "我们的服务",
+    "title": "综合安全",
+    "titleGradient": "解决方案",
+    "description": "我们为移动应用程序的各种需求提供全面的安全服务",
+    "items": {
+      "apk": {
+        "title": "APK保护",
+        "description": "采用先进加密技术全面保护Android应用程序免受逆向工程、黑客攻击和安全威胁。",
+        "features": ["防篡改", "代码混淆", "运行时保护"]
+      },
+      "ios": {
+        "title": "iOS保护",
+        "description": "iOS应用程序的高级安全解决方案，防越狱、阻止逆向工程并保护敏感数据。",
+        "features": ["越狱检测", "二进制加密", "调试防护"]
+      },
+      "sourceCode": {
+        "title": "源代码分析",
+        "description": "基于AI的深度源代码分析，检测安全漏洞、代码异味并提供改进建议。",
+        "features": ["SAST扫描", "漏洞检测", "代码质量评估"]
+      },
+      "malware": {
+        "title": "恶意软件分析",
+        "description": "采用机器学习的先进恶意软件检测和分析系统，定期更新数据库。",
+        "features": ["实时检测", "威胁情报", "行为分析"]
+      },
+      "appTotal": {
+        "title": "App Total Go",
+        "description": "跨多个设备和操作系统版本的移动应用程序综合安全测试平台。",
+        "features": ["多设备测试", "性能监控", "兼容性检查"]
+      },
+      "vulnerability": {
+        "title": "漏洞评估",
+        "description": "根据OWASP和国际标准评估和处理系统中的安全漏洞。",
+        "features": ["渗透测试", "安全审计", "合规性检查"]
+      }
+    }
+  },
+  "about": {
+    "badge": "关于ICS Security",
+    "title": "值得信赖的",
+    "titleGradient": "安全合作伙伴",
+    "description": "ICS Security是越南领先的移动应用安全解决方案提供商。凭借经验丰富的专家团队和最先进的技术，我们致力于为您的应用程序提供最佳保护。",
+    "stats": {
+      "years": {
+        "title": "10年以上",
+        "description": "网络安全和移动应用保护领域的经验"
+      },
+      "experts": {
+        "title": "50多位专家",
+        "description": "经过认证的安全专家，致力于保护您的应用程序"
+      },
+      "certified": {
+        "title": "ISO认证",
+        "description": "符合国际安全标准和最佳实践"
+      }
+    },
+    "whyChooseUs": {
+      "missionCritical": {
+        "title": "企业级保护",
+        "description": "为处理敏感数据和交易的关键应用程序设计的企业级安全。"
+      },
+      "expertTeam": {
+        "title": "专家团队",
+        "description": "在移动应用安全和威胁情报方面拥有多年经验的专业安全专家。"
+      },
+      "cuttingEdge": {
+        "title": "尖端技术",
+        "description": "利用最新的AI和机器学习技术，在新兴安全威胁面前保持领先。"
+      },
+      "scalable": {
+        "title": "可扩展基础设施",
+        "description": "云原生架构无缝扩展，可处理任何规模和复杂度的应用程序。"
+      }
+    },
+    "featuresTitle": "我们的",
+    "featuresTitleGradient": "差异化优势",
+    "features": [
+      "最先进的安全技术",
+      "多平台支持（Android、iOS）",
+      "易于集成的灵活API",
+      "直观、现代的管理仪表板",
+      "详细的深度分析报告",
+      "24/7持续安全更新",
+      "专业支持团队",
+      "符合国际安全标准"
+    ]
+  },
+  "contact": {
+    "badge": "联系我们",
+    "title": "准备开始了吗？",
+    "titleGradient": "立即联系",
+    "description": "与我们的安全专家联系，讨论我们如何保护您的应用程序",
+    "info": {
+      "office": {
+        "title": "办公室",
+        "address": "TT3-5 新大金都市区\n定公，河内，越南"
+      },
+      "phone": {
+        "title": "电话",
+        "office": "办公电话",
+        "hotline": "热线"
+      },
+      "email": {
+        "title": "电子邮件"
+      },
+      "website": {
+        "title": "网站"
+      }
+    },
+    "form": {
+      "title": "发送消息",
+      "titleGradient": "给我们",
+      "fullName": "全名",
+      "company": "公司",
+      "email": "电子邮件",
+      "phone": "电话号码",
+      "service": "感兴趣的服务",
+      "serviceOptions": {
+        "select": "选择服务",
+        "apk": "APK保护",
+        "ios": "iOS保护",
+        "source": "源代码分析",
+        "malware": "恶意软件分析",
+        "apptotal": "App Total Go",
+        "vulnerability": "漏洞评估"
+      },
+      "message": "内容",
+      "submit": "提交信息",
+      "placeholders": {
+        "fullName": "张三",
+        "company": "您的公司",
+        "email": "email@company.com",
+        "phone": "0xxx xxx xxx",
+        "message": "输入咨询内容..."
+      }
+    }
+  },
+  "footer": {
+    "description": "越南领先的移动应用安全解决方案。保护5000多个应用程序，服务100多个企业客户。",
+    "services": "服务",
+    "company": "公司",
+    "links": {
+      "aboutUs": "关于我们",
+      "contact": "联系我们",
+      "signIn": "登录"
+    },
+    "legal": {
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "sitemap": "网站地图"
+    },
+    "copyright": "ICS网络安全。版权所有。"
+  }
+}

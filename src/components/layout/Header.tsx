@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Bell, Search, User, LogOut, Settings, ChevronDown, Clock, CheckCircle, AlertTriangle, Info } from 'lucide-react';
-import Logo from '@/components/Logo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 interface Notification {
   id: string;
@@ -26,6 +26,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ user: propUser, onLogout }) => {
+  const router = useRouter();
   const [user, setUser] = useState(propUser);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -123,35 +124,37 @@ const Header: React.FC<HeaderProps> = ({ user: propUser, onLogout }) => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="sticky top-0 z-50 glass border-b border-slate-800 h-16"
+      className="z-40 glass border-b border-slate-800 h-14 flex-shrink-0"
     >
-      <div className="h-full px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Logo size="sm" />
+      <div className="h-full px-4 flex items-center justify-between">
+        {/* Empty space for layout balance - Logo is in sidebar */}
+        <div className="flex-shrink-0">
+          {/* Logo removed from header - now only in sidebar */}
+        </div>
 
         {/* Search Bar */}
-        <div className="hidden md:flex flex-1 max-w-md mx-8">
+        <div className="hidden md:flex flex-1 max-w-md mx-6">
           <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
               placeholder="Search..."
-              className="w-full pl-10 pr-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full pl-9 pr-4 py-1.5 text-sm bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             />
           </div>
         </div>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Notifications */}
           <div className="relative" ref={notificationRef}>
             <button 
               onClick={() => setShowNotifications(!showNotifications)}
-              className="relative p-2 hover:bg-slate-800 rounded-lg transition-colors"
+              className="relative p-1.5 hover:bg-slate-800 rounded-lg transition-colors"
             >
-              <Bell className="w-5 h-5 text-slate-400" />
+              <Bell className="w-4 h-4 text-slate-400" />
               {unreadCount > 0 && (
-                <span className="absolute top-1 right-1 w-5 h-5 bg-red-500 rounded-full text-xs text-white flex items-center justify-center font-semibold">
+                <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center font-semibold">
                   {unreadCount}
                 </span>
               )}
@@ -222,32 +225,32 @@ const Header: React.FC<HeaderProps> = ({ user: propUser, onLogout }) => {
           </div>
 
           {/* User Menu */}
-          <div className="flex items-center gap-3 pl-4 border-l border-slate-800 relative" ref={userMenuRef}>
-            <div className="hidden md:block text-right">
-              <p className="text-sm font-medium text-white">
+          <div className="flex items-center gap-2 pl-3 border-l border-slate-800 relative" ref={userMenuRef}>
+            <div className="hidden lg:block text-right">
+              <p className="text-xs font-medium text-white">
                 {user?.firstName} {user?.lastName}
               </p>
-              <p className="text-xs text-slate-400 capitalize">{user?.role}</p>
+              <p className="text-[10px] text-slate-400 capitalize">{user?.role}</p>
             </div>
             
             <button 
               onClick={() => setShowUserMenu(!showUserMenu)}
-              className="flex items-center gap-2 hover:bg-slate-800 rounded-lg p-1 transition-colors"
+              className="flex items-center gap-1.5 hover:bg-slate-800 rounded-lg p-1 transition-colors"
             >
               {user?.avatar ? (
                 <img 
                   src={user.avatar} 
                   alt={`${user.firstName} ${user.lastName}`}
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
+                  <span className="text-white font-semibold text-xs">
                     {user?.firstName?.[0]}{user?.lastName?.[0]}
                   </span>
                 </div>
               )}
-              <ChevronDown className="w-4 h-4 text-slate-400" />
+              <ChevronDown className="w-3 h-3 text-slate-400" />
             </button>
 
             <AnimatePresence>

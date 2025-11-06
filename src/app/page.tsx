@@ -20,8 +20,8 @@ export default function Home() {
         router.push('/user/dashboard');
       }
     } else {
-      // Redirect to login
-      router.push('/auth/login');
+      // Redirect to landing page
+      router.push('/landing#home');
     }
   }, [router]);
 

@@ -50,11 +50,11 @@ export default function UserLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0e27]">
-      <Header user={user} onLogout={handleLogout} />
-      <div className="flex">
-        <Sidebar role="user" />
-        <main className="flex-1 p-6 overflow-y-auto h-[calc(100vh-4rem)]">
+    <div className="min-h-screen bg-[#0a0e27] flex">
+      <Sidebar role="user" />
+      <div className="flex-1 flex flex-col">
+        <Header user={user} onLogout={handleLogout} />
+        <main className="flex-1 p-6 overflow-y-auto">
           {children}
         </main>
       </div>

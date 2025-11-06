@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "signIn": "Sign In"
+  },
+  "hero": {
+    "badge": "🔒 Leading Mobile Application Security Platform in Vietnam",
+    "title": "Protect Your Apps",
+    "titleGradient": "Rock Solid Security",
+    "description": "Comprehensive security solution for Android and iOS applications with cutting-edge technology. Anti-reverse engineering, malware detection and source code protection 24/7.",
+    "getStarted": "Get Started",
+    "contactSales": "Contact Sales",
+    "certifications": {
+      "iso": "ISO 27001 Certified",
+      "owasp": "OWASP Compliant",
+      "uptime": "99.9% Uptime SLA"
+    }
+  },
+  "stats": {
+    "apps": "Protected Applications",
+    "reliability": "System Reliability",
+    "support": "Technical Support",
+    "clients": "Enterprise Clients"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Comprehensive Security",
+    "titleGradient": "Solutions",
+    "description": "We provide complete security services for all your mobile application needs",
+    "items": {
+      "apk": {
+        "title": "APK Protection",
+        "description": "Comprehensive Android application protection against reverse engineering, hacking and security threats with advanced encryption technology.",
+        "features": ["Anti-tampering", "Code obfuscation", "Runtime protection"]
+      },
+      "ios": {
+        "title": "iOS Protection",
+        "description": "Premium security solution for iOS applications, anti-jailbreak detection, reverse engineering prevention and sensitive data protection.",
+        "features": ["Jailbreak detection", "Binary encryption", "Debug prevention"]
+      },
+      "sourceCode": {
+        "title": "Source Code Analysis",
+        "description": "Deep source code analysis with AI, detecting security vulnerabilities, code smells and providing improvement recommendations.",
+        "features": ["SAST scanning", "Vulnerability detection", "Code quality metrics"]
+      },
+      "malware": {
+        "title": "Malware Intelligence",
+        "description": "Advanced malware detection and analysis system with machine learning, regularly updated threat database and behavioral analysis.",
+        "features": ["Real-time detection", "Threat intelligence", "Behavioral analysis"]
+      },
+      "appTotal": {
+        "title": "App Total Go",
+        "description": "Comprehensive security testing platform for mobile applications across multiple devices and operating system versions.",
+        "features": ["Multi-device testing", "Performance monitoring", "Compatibility check"]
+      },
+      "vulnerability": {
+        "title": "Vulnerability Assessment",
+        "description": "Assessment and remediation of system security vulnerabilities according to OWASP standards and international security benchmarks.",
+        "features": ["Penetration testing", "Security audit", "Compliance check"]
+      }
+    }
+  },
+  "about": {
+    "badge": "About ICS Security",
+    "title": "Your Trusted",
+    "titleGradient": "Security Partner",
+    "description": "ICS Security is the leading provider of mobile application security solutions in Vietnam. With our team of experienced experts and cutting-edge technology, we are committed to delivering the best protection for your applications.",
+    "stats": {
+      "years": {
+        "title": "10+ Years",
+        "description": "Of experience in cybersecurity and mobile application protection industry"
+      },
+      "experts": {
+        "title": "50+ Experts",
+        "description": "Certified security professionals dedicated to protecting your applications"
+      },
+      "certified": {
+        "title": "ISO Certified",
+        "description": "Compliance with international security standards and best practices"
+      }
+    },
+    "whyChooseUs": {
+      "missionCritical": {
+        "title": "Mission-Critical Protection",
+        "description": "Enterprise-grade security designed for mission-critical applications handling sensitive data and transactions."
+      },
+      "expertTeam": {
+        "title": "Expert Team",
+        "description": "Dedicated security experts with years of experience in mobile application security and threat intelligence."
+      },
+      "cuttingEdge": {
+        "title": "Cutting-Edge Technology",
+        "description": "Leveraging the latest AI and machine learning technologies to stay ahead of emerging security threats."
+      },
+      "scalable": {
+        "title": "Scalable Infrastructure",
+        "description": "Cloud-native architecture that scales seamlessly to handle applications of any size and complexity."
+      }
+    },
+    "featuresTitle": "What Makes Us",
+    "featuresTitleGradient": "Different",
+    "features": [
+      "State-of-the-art security technology",
+      "Multi-platform support (Android, iOS)",
+      "Easy and flexible API integration",
+      "Intuitive modern dashboard",
+      "Detailed reports with deep analysis",
+      "Continuous 24/7 security updates",
+      "Professional support team",
+      "International security standards compliance"
+    ]
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "Ready to Get Started?",
+    "titleGradient": "Let's Talk",
+    "description": "Connect with our security experts to discuss how we can protect your applications",
+    "info": {
+      "office": {
+        "title": "Office Location",
+        "address": "TT3-5 Dai Kim New Urban Area\nDinh Cong, Hanoi, Vietnam"
+      },
+      "phone": {
+        "title": "Phone Numbers",
+        "office": "Office",
+        "hotline": "Hotline"
+      },
+      "email": {
+        "title": "Email Address"
+      },
+      "website": {
+        "title": "Website"
+      }
+    },
+    "form": {
+      "title": "Send Us a",
+      "titleGradient": "Message",
+      "fullName": "Full Name",
+      "company": "Company",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Interest",
+      "serviceOptions": {
+        "select": "Select a service",
+        "apk": "APK Protection",
+        "ios": "iOS Protection",
+        "source": "Source Code Analysis",
+        "malware": "Malware Intelligence",
+        "apptotal": "App Total Go",
+        "vulnerability": "Vulnerability Assessment"
+      },
+      "message": "Message",
+      "submit": "Send Message",
+      "placeholders": {
+        "fullName": "John Doe",
+        "company": "Your Company",
+        "email": "john@company.com",
+        "phone": "+84 xxx xxx xxx",
+        "message": "Tell us about your security needs..."
+      }
+    }
+  },
+  "footer": {
+    "description": "Leading mobile application security solution in Vietnam. Protecting 5000+ applications, serving 100+ enterprise clients.",
+    "services": "Services",
+    "company": "Company",
+    "links": {
+      "aboutUs": "About Us",
+      "contact": "Contact",
+      "signIn": "Sign In"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "sitemap": "Sitemap"
+    },
+    "copyright": "ICS Cyber Security. All rights reserved."
+  }
+}

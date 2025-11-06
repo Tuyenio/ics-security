@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "signIn": "Đăng nhập"
+  },
+  "hero": {
+    "badge": "🔒 Nền tảng bảo mật ứng dụng di động hàng đầu Việt Nam",
+    "title": "Bảo vệ ứng dụng",
+    "titleGradient": "Vững chắc như đá",
+    "description": "Giải pháp bảo mật toàn diện cho ứng dụng Android và iOS với công nghệ tiên tiến nhất. Chống dịch ngược, phát hiện malware và bảo vệ mã nguồn 24/7.",
+    "getStarted": "Bắt đầu ngay",
+    "contactSales": "Liên hệ tư vấn",
+    "certifications": {
+      "iso": "Chứng nhận ISO 27001",
+      "owasp": "Tuân thủ OWASP",
+      "uptime": "99.9% Uptime SLA"
+    }
+  },
+  "stats": {
+    "apps": "Ứng dụng được bảo vệ",
+    "reliability": "Độ tin cậy hệ thống",
+    "support": "Hỗ trợ kỹ thuật",
+    "clients": "Khách hàng doanh nghiệp"
+  },
+  "services": {
+    "badge": "Dịch vụ của chúng tôi",
+    "title": "Giải pháp bảo mật",
+    "titleGradient": "Toàn diện",
+    "description": "Chúng tôi cung cấp đầy đủ các dịch vụ bảo mật cho mọi nhu cầu của ứng dụng di động",
+    "items": {
+      "apk": {
+        "title": "Bảo vệ APK",
+        "description": "Bảo vệ ứng dụng Android toàn diện khỏi dịch ngược, hack và các mối đe dọa bảo mật với công nghệ mã hóa tiên tiến.",
+        "features": ["Chống giả mạo", "Làm rối code", "Bảo vệ runtime"]
+      },
+      "ios": {
+        "title": "Bảo vệ iOS",
+        "description": "Giải pháp bảo mật cao cấp cho ứng dụng iOS, chống jailbreak, ngăn chặn dịch ngược và bảo vệ dữ liệu nhạy cảm.",
+        "features": ["Phát hiện jailbreak", "Mã hóa binary", "Ngăn chặn debug"]
+      },
+      "sourceCode": {
+        "title": "Phân tích mã nguồn",
+        "description": "Phân tích mã nguồn chuyên sâu với AI, phát hiện lỗ hổng bảo mật, code smell và đưa ra khuyến nghị cải thiện.",
+        "features": ["Quét SAST", "Phát hiện lỗ hổng", "Đánh giá chất lượng code"]
+      },
+      "malware": {
+        "title": "Phân tích Malware",
+        "description": "Hệ thống phát hiện và phân tích malware tiên tiến với machine learning, cập nhật database thường xuyên.",
+        "features": ["Phát hiện real-time", "Tình báo mối đe dọa", "Phân tích hành vi"]
+      },
+      "appTotal": {
+        "title": "App Total Go",
+        "description": "Nền tảng kiểm tra bảo mật tổng thể cho ứng dụng di động trên nhiều thiết bị và phiên bản hệ điều hành.",
+        "features": ["Kiểm tra đa thiết bị", "Giám sát hiệu suất", "Kiểm tra tương thích"]
+      },
+      "vulnerability": {
+        "title": "Đánh giá lỗ hổng",
+        "description": "Đánh giá và xử lý các lỗ hổng bảo mật trong hệ thống theo chuẩn OWASP và các tiêu chuẩn quốc tế.",
+        "features": ["Kiểm tra xâm nhập", "Kiểm toán bảo mật", "Kiểm tra tuân thủ"]
+      }
+    }
+  },
+  "about": {
+    "badge": "Về ICS Security",
+    "title": "Đối tác bảo mật",
+    "titleGradient": "Đáng tin cậy",
+    "description": "ICS Security là đơn vị hàng đầu cung cấp giải pháp bảo mật ứng dụng di động tại Việt Nam. Với đội ngũ chuyên gia giàu kinh nghiệm và công nghệ tiên tiến nhất, chúng tôi cam kết mang đến sự bảo vệ tốt nhất cho ứng dụng của bạn.",
+    "stats": {
+      "years": {
+        "title": "Hơn 10 năm",
+        "description": "Kinh nghiệm trong lĩnh vực an ninh mạng và bảo vệ ứng dụng di động"
+      },
+      "experts": {
+        "title": "Hơn 50 chuyên gia",
+        "description": "Chuyên gia bảo mật được chứng nhận, tận tâm bảo vệ ứng dụng của bạn"
+      },
+      "certified": {
+        "title": "Chứng nhận ISO",
+        "description": "Tuân thủ các tiêu chuẩn bảo mật quốc tế và thực hành tốt nhất"
+      }
+    },
+    "whyChooseUs": {
+      "missionCritical": {
+        "title": "Bảo vệ cấp doanh nghiệp",
+        "description": "Bảo mật cấp doanh nghiệp được thiết kế cho các ứng dụng quan trọng xử lý dữ liệu và giao dịch nhạy cảm."
+      },
+      "expertTeam": {
+        "title": "Đội ngũ chuyên gia",
+        "description": "Chuyên gia bảo mật tận tâm với nhiều năm kinh nghiệm trong bảo mật ứng dụng di động và tình báo mối đe dọa."
+      },
+      "cuttingEdge": {
+        "title": "Công nghệ tiên tiến",
+        "description": "Tận dụng các công nghệ AI và machine learning mới nhất để luôn dẫn đầu trước các mối đe dọa bảo mật mới nổi."
+      },
+      "scalable": {
+        "title": "Hạ tầng mở rộng",
+        "description": "Kiến trúc cloud-native mở rộng liền mạch để xử lý các ứng dụng ở mọi quy mô và độ phức tạp."
+      }
+    },
+    "featuresTitle": "Điểm khác biệt",
+    "featuresTitleGradient": "của chúng tôi",
+    "features": [
+      "Công nghệ bảo mật tiên tiến nhất",
+      "Hỗ trợ đa nền tảng (Android, iOS)",
+      "API tích hợp dễ dàng và linh hoạt",
+      "Dashboard quản lý trực quan, hiện đại",
+      "Báo cáo chi tiết với phân tích chuyên sâu",
+      "Cập nhật bảo mật liên tục 24/7",
+      "Đội ngũ hỗ trợ chuyên nghiệp",
+      "Tuân thủ các tiêu chuẩn bảo mật quốc tế"
+    ]
+  },
+  "contact": {
+    "badge": "Liên hệ",
+    "title": "Sẵn sàng bắt đầu?",
+    "titleGradient": "Liên hệ ngay",
+    "description": "Kết nối với các chuyên gia bảo mật của chúng tôi để thảo luận về cách chúng tôi có thể bảo vệ ứng dụng của bạn",
+    "info": {
+      "office": {
+        "title": "Văn phòng",
+        "address": "TT3-5 Khu đô thị Đại Kim mới\nĐịnh Công, Hà Nội, Việt Nam"
+      },
+      "phone": {
+        "title": "Điện thoại",
+        "office": "Điện thoại",
+        "hotline": "Hotline"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "website": {
+        "title": "Website"
+      }
+    },
+    "form": {
+      "title": "Gửi tin nhắn",
+      "titleGradient": "cho chúng tôi",
+      "fullName": "Họ và tên",
+      "company": "Công ty",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "service": "Dịch vụ quan tâm",
+      "serviceOptions": {
+        "select": "Chọn dịch vụ",
+        "apk": "Bảo vệ APK",
+        "ios": "Bảo vệ iOS",
+        "source": "Phân tích mã nguồn",
+        "malware": "Phân tích Malware",
+        "apptotal": "App Total Go",
+        "vulnerability": "Đánh giá lỗ hổng"
+      },
+      "message": "Nội dung",
+      "submit": "Gửi thông tin",
+      "placeholders": {
+        "fullName": "Nguyễn Văn A",
+        "company": "Công ty của bạn",
+        "email": "email@company.com",
+        "phone": "0xxx xxx xxx",
+        "message": "Nhập nội dung cần tư vấn..."
+      }
+    }
+  },
+  "footer": {
+    "description": "Giải pháp bảo mật ứng dụng di động hàng đầu Việt Nam. Bảo vệ hơn 5000+ ứng dụng, phục vụ 100+ khách hàng doanh nghiệp.",
+    "services": "Dịch vụ",
+    "company": "Công ty",
+    "links": {
+      "aboutUs": "Về chúng tôi",
+      "contact": "Liên hệ",
+      "signIn": "Đăng nhập"
+    },
+    "legal": {
+      "privacy": "Chính sách bảo mật",
+      "terms": "Điều khoản dịch vụ",
+      "sitemap": "Sơ đồ trang"
+    },
+    "copyright": "ICS Cyber Security. Bản quyền thuộc về."
+  }
+}
