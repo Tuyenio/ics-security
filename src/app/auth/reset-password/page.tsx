@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Eye, EyeOff, CheckCircle, X } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -332,7 +332,13 @@ function ResetPasswordContent() {
 export default function ResetPasswordPage() {
   return (
     <LanguageProvider>
-      <ResetPasswordContent />
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+          <div className="text-white">Loading...</div>
+        </div>
+      }>
+        <ResetPasswordContent />
+      </Suspense>
     </LanguageProvider>
   );
 }
