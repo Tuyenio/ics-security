@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Upload, Download, RefreshCw, CheckCircle, XCircle } from 'lucide-react';
+import { Upload, Shield, Download, RefreshCw, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface AppFile {
   id: string;
@@ -18,6 +19,7 @@ interface AppFile {
 }
 
 export default function AppTotalGoPage() {
+  const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
   const [isUploading, setIsUploading] = useState(false);
   const [timesRemaining, setTimesRemaining] = useState(10);
@@ -143,9 +145,9 @@ export default function AppTotalGoPage() {
   return (
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-3xl font-bold text-white mb-2">AppTotalGo</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">{t('user.appTotalGo.title')}</h1>
         <p className="text-slate-400">
-          Use mainstream hacking tools to test source code protection, memory detection prevention, and integrity verification, and provide recommendations for improvements.
+          {t('user.appTotalGo.subtitle')}
         </p>
       </motion.div>
 
@@ -154,12 +156,12 @@ export default function AppTotalGoPage() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Upload Application File</CardTitle>
-                <CardDescription>Times Remaining: {timesRemaining}</CardDescription>
+                <CardTitle>{t('user.appTotalGo.uploadTitle')}</CardTitle>
+                <CardDescription>{t('user.appTotalGo.timesRemaining')}: {timesRemaining}</CardDescription>
               </div>
               <Button variant="outline" size="sm" onClick={handleRefresh}>
                 <RefreshCw className="w-4 h-4 mr-2" />
-                Refresh
+                {t('user.appTotalGo.refresh')}
               </Button>
             </div>
           </CardHeader>
@@ -183,10 +185,10 @@ export default function AppTotalGoPage() {
                   </div>
                   <div>
                     <p className="text-white font-semibold mb-1">
-                      {isUploading ? 'Uploading...' : 'Upload File (apk, aab, ipa)'}
+                      {isUploading ? t('user.appTotalGo.uploading') : t('user.appTotalGo.uploadPrompt')}
                     </p>
                     <p className="text-sm text-slate-400">
-                      APK, AAB or IPA files only (Max 2GB)
+                      {t('user.appTotalGo.fileFormat')}
                     </p>
                   </div>
                 </div>
@@ -194,12 +196,12 @@ export default function AppTotalGoPage() {
             </div>
 
             <div className="mt-4 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
-              <p className="text-sm text-cyan-300 font-medium mb-2">Important Notes:</p>
+              <p className="text-sm text-cyan-300 font-medium mb-2">{t('user.appTotalGo.importantNotes')}</p>
               <ul className="text-sm text-cyan-200 space-y-1 list-disc list-inside">
-                <li>Use mainstream hacking tools to test source code protection</li>
-                <li>Memory detection prevention and integrity verification</li>
-                <li>Supported formats: APK, AAB, IPA</li>
-                <li>The file upload size is limited to 2 GB or less</li>
+                <li>{t('user.appTotalGo.note1')}</li>
+                <li>{t('user.appTotalGo.note2')}</li>
+                <li>{t('user.appTotalGo.note3')}</li>
+                <li>{t('user.appTotalGo.note4')}</li>
               </ul>
             </div>
           </CardContent>
@@ -213,13 +215,13 @@ export default function AppTotalGoPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800 bg-slate-900/50">
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Filename</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">File Size</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Version</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Createtime</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Finishtime</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Status</th>
-                    <th className="text-left py-4 px-6 text-slate-400 font-medium">Report</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.filename')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.fileSize')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.version')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.createTime')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.finishTime')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.status')}</th>
+                    <th className="text-left py-4 px-6 text-slate-400 font-medium">{t('user.appTotalGo.table.report')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -227,7 +229,7 @@ export default function AppTotalGoPage() {
                     <tr>
                       <td colSpan={7} className="text-center py-12">
                         <Shield className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                        <p className="text-slate-400">No scans performed yet</p>
+                        <p className="text-slate-400">{t('user.appTotalGo.noFiles')}</p>
                       </td>
                     </tr>
                   ) : (
@@ -260,11 +262,11 @@ export default function AppTotalGoPage() {
                         <td className="py-4 px-6">
                           {file.status === 'completed' ? (
                             <span className="px-3 py-1 rounded text-xs font-semibold bg-green-500/20 text-green-400 inline-flex items-center gap-1">
-                              Completed
+                              {t('user.appTotalGo.completed')}
                             </span>
                           ) : (
                             <span className="px-3 py-1 rounded text-xs font-semibold bg-red-500/20 text-red-400 inline-flex items-center gap-1">
-                              Failure
+                              {t('user.appTotalGo.failure')}
                             </span>
                           )}
                         </td>
@@ -277,7 +279,7 @@ export default function AppTotalGoPage() {
                               onClick={() => handleDownload(file)}
                             >
                               <Download className="w-4 h-4 mr-1" />
-                              Download
+                              {t('user.appTotalGo.download')}
                             </Button>
                           ) : (
                             <span className="text-slate-600">-</span>

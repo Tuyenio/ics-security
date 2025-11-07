@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/Logo';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface MenuItem {
   icon: LucideIcon;
@@ -39,29 +40,30 @@ const Sidebar: React.FC<SidebarProps> = ({ role }) => {
   const pathname = usePathname();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { t } = useLanguage();
 
   const userMenuItems: MenuItem[] = [
-    { icon: User, label: 'User Center', href: '/user/dashboard' },
-    { icon: FileCode2, label: 'Source Code Analysis', href: '/user/source-code-analysis' },
-    { icon: Smartphone, label: 'Compatibility', href: '/user/compatibility' },
-    { icon: Shield, label: 'AppTotalGo', href: '/user/app-total-go' },
-    { icon: Lock, label: 'APK Protect', href: '/user/apk-protect' },
-    { icon: ShieldCheck, label: 'iOS Protect', href: '/user/ios-protect' },
-    { icon: Bug, label: 'Malware Intelligence', href: '/user/malware-intelligence' },
-    { icon: KeyRound, label: 'Change Password', href: '/user/change-password' },
+    { icon: User, label: t('sidebar.user.userCenter'), href: '/user/dashboard' },
+    { icon: FileCode2, label: t('sidebar.user.sourceCodeAnalysis'), href: '/user/source-code-analysis' },
+    { icon: Smartphone, label: t('sidebar.user.compatibility'), href: '/user/compatibility' },
+    { icon: Shield, label: t('sidebar.user.appTotalGo'), href: '/user/app-total-go' },
+    { icon: Lock, label: t('sidebar.user.apkProtect'), href: '/user/apk-protect' },
+    { icon: ShieldCheck, label: t('sidebar.user.iosProtect'), href: '/user/ios-protect' },
+    { icon: Bug, label: t('sidebar.user.malwareIntelligence'), href: '/user/malware-intelligence' },
+    { icon: KeyRound, label: t('sidebar.user.changePassword'), href: '/user/change-password' },
   ];
 
   const adminMenuItems: MenuItem[] = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/admin/dashboard' },
-    { icon: Users, label: 'User Management', href: '/admin/users' },
-    { icon: BarChart3, label: 'Analytics', href: '/admin/analytics' },
-    { icon: FileCode2, label: 'Source Code Analysis', href: '/admin/source-code-analysis' },
-    { icon: Smartphone, label: 'Compatibility', href: '/admin/compatibility' },
-    { icon: Shield, label: 'AppTotalGo', href: '/admin/app-total-go' },
-    { icon: Lock, label: 'APK Protect', href: '/admin/apk-protect' },
-    { icon: ShieldCheck, label: 'iOS Protect', href: '/admin/ios-protect' },
-    { icon: Bug, label: 'Malware Intelligence', href: '/admin/malware-intelligence' },
-    { icon: Settings, label: 'Settings', href: '/admin/settings' },
+    { icon: LayoutDashboard, label: t('sidebar.admin.dashboard'), href: '/admin/dashboard' },
+    { icon: Users, label: t('sidebar.admin.userManagement'), href: '/admin/users' },
+    { icon: BarChart3, label: t('sidebar.admin.analytics'), href: '/admin/analytics' },
+    { icon: FileCode2, label: t('sidebar.admin.sourceCodeAnalysis'), href: '/admin/source-code-analysis' },
+    { icon: Smartphone, label: t('sidebar.admin.compatibility'), href: '/admin/compatibility' },
+    { icon: Shield, label: t('sidebar.admin.appTotalGo'), href: '/admin/app-total-go' },
+    { icon: Lock, label: t('sidebar.admin.apkProtect'), href: '/admin/apk-protect' },
+    { icon: ShieldCheck, label: t('sidebar.admin.iosProtect'), href: '/admin/ios-protect' },
+    { icon: Bug, label: t('sidebar.admin.malwareIntelligence'), href: '/admin/malware-intelligence' },
+    { icon: Settings, label: t('sidebar.admin.settings'), href: '/admin/settings' },
   ];
 
   const menuItems = role === 'admin' ? adminMenuItems : userMenuItems;
@@ -93,7 +95,7 @@ const Sidebar: React.FC<SidebarProps> = ({ role }) => {
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="p-1.5 hover:bg-slate-800 rounded-lg transition-colors ml-auto"
-          title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          title={isCollapsed ? t('sidebar.expandSidebar') : t('sidebar.collapseSidebar')}
         >
           {isCollapsed ? (
             <ChevronRight className="w-4 h-4 text-slate-400" />

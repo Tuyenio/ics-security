@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Code, Users, TrendingUp, FileCode, Search, Filter, Download, Eye } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface AnalysisRecord {
   id: string;
@@ -27,6 +28,7 @@ interface AnalysisRecord {
 }
 
 export default function AdminSourceCodeAnalysisPage() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'processing' | 'failed'>('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -77,10 +79,10 @@ export default function AdminSourceCodeAnalysisPage() {
   ]);
 
   const stats = [
-    { label: 'Total Scans', value: records.length, color: 'from-blue-600 to-cyan-500', icon: FileCode },
-    { label: 'Active Users', value: new Set(records.map(r => r.userId)).size, color: 'from-purple-600 to-pink-500', icon: Users },
-    { label: 'Critical Issues', value: records.reduce((sum, r) => sum + r.issues.critical, 0), color: 'from-red-600 to-orange-500', icon: TrendingUp },
-    { label: 'Completed Today', value: records.filter(r => r.status === 'completed' && r.scanTime.startsWith('2025-11-03')).length, color: 'from-green-600 to-emerald-500', icon: Code },
+    { label: t('admin.sourceCode.stats.totalScans'), value: records.length, color: 'from-blue-600 to-cyan-500', icon: FileCode },
+    { label: t('admin.sourceCode.stats.activeUsers'), value: new Set(records.map(r => r.userId)).size, color: 'from-purple-600 to-pink-500', icon: Users },
+    { label: t('admin.sourceCode.stats.criticalIssues'), value: records.reduce((sum, r) => sum + r.issues.critical, 0), color: 'from-red-600 to-orange-500', icon: TrendingUp },
+    { label: t('admin.sourceCode.stats.completedToday'), value: records.filter(r => r.status === 'completed' && r.scanTime.startsWith('2025-11-03')).length, color: 'from-green-600 to-emerald-500', icon: Code },
   ];
 
   const filteredRecords = records.filter(record => {
@@ -117,14 +119,14 @@ export default function AdminSourceCodeAnalysisPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Source Code Analysis</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.sourceCode.title')}</h1>
             <p className="text-slate-400">
-              Monitor and manage all source code security scans
+              {t('admin.sourceCode.subtitle')}
             </p>
           </div>
           <Button variant="outline" size="sm">
             <Download className="w-4 h-4 mr-2" />
-            Export Report
+            {t('admin.common.exportReport')}
           </Button>
         </div>
       </motion.div>

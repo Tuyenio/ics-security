@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Activity, Shield, TrendingUp, FileCode2, Smartphone, Bug } from 'lucide-react';
+import { Users, Activity, Shield, Bug, FileCode2, Smartphone } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { User } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AdminDashboard() {
   const [admin, setAdmin] = useState<User | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
@@ -18,28 +20,28 @@ export default function AdminDashboard() {
 
   const stats = [
     {
-      label: 'Total Users',
+      label: t('admin.dashboard.stats.totalUsers'),
       value: '156',
       change: '+12%',
       icon: Users,
       color: 'from-blue-600 to-cyan-500',
     },
     {
-      label: 'Active Sessions',
+      label: t('admin.dashboard.stats.activeSessions'),
       value: '89',
       change: '+8%',
       icon: Activity,
       color: 'from-green-600 to-emerald-500',
     },
     {
-      label: 'Total Scans',
+      label: t('admin.dashboard.stats.totalScans'),
       value: '1,234',
       change: '+23%',
       icon: Shield,
       color: 'from-purple-600 to-pink-500',
     },
     {
-      label: 'Threats Detected',
+      label: t('admin.dashboard.stats.threatsDetected'),
       value: '47',
       change: '-15%',
       icon: Bug,
@@ -67,10 +69,10 @@ export default function AdminDashboard() {
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="text-3xl font-bold text-white mb-2">
-          Welcome, Admin {admin?.firstName}! 🚀
+          {t('admin.dashboard.title')} {admin?.firstName}! 🚀
         </h1>
         <p className="text-slate-400">
-          Here's an overview of your security platform performance
+          {t('admin.dashboard.subtitle')}
         </p>
       </motion.div>
 
@@ -110,7 +112,7 @@ export default function AdminDashboard() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
           <Card>
             <CardHeader>
-              <CardTitle>Service Usage</CardTitle>
+              <CardTitle>{t('admin.dashboard.serviceUsage')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -157,7 +159,7 @@ export default function AdminDashboard() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
           <Card>
             <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
+              <CardTitle>{t('admin.dashboard.recentActivity')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">

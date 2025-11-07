@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
 import { User, Mail, Building2, MapPin, Smartphone, Shield } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { User as UserType } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function UserDashboard() {
   const [user, setUser] = useState<UserType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -54,40 +56,40 @@ export default function UserDashboard() {
 
   const stats = [
     {
-      label: 'Protect Version',
+      label: t('user.dashboard.stats.protectVersion'),
       value: user.protectVersion || 'Customized',
       icon: Shield,
       color: 'from-blue-600 to-cyan-500',
     },
     {
-      label: 'Android Times',
-      value: `${user.androidTimes || 45} Times`,
+      label: t('user.dashboard.stats.androidTimes'),
+      value: `${user.androidTimes || 45} ${t('user.dashboard.times')}`,
       icon: Smartphone,
       color: 'from-green-600 to-emerald-500',
     },
     {
-      label: 'iOS Times',
-      value: `${user.iosTimes || 50} Times`,
+      label: t('user.dashboard.stats.iosTimes'),
+      value: `${user.iosTimes || 50} ${t('user.dashboard.times')}`,
       icon: Smartphone,
       color: 'from-purple-600 to-pink-500',
     },
     {
-      label: 'User Type',
-      value: 'Free User',
+      label: t('user.dashboard.stats.userType'),
+      value: t('user.dashboard.freeUser'),
       icon: User,
       color: 'from-orange-600 to-red-500',
     },
   ];
 
   const userInfo = [
-    { label: 'Protect Version', value: user.protectVersion || 'Customized', icon: Shield },
-    { label: 'Country', value: user.country || 'Vietnam', icon: MapPin },
-    { label: 'Last Name', value: user.lastName, icon: User },
-    { label: 'First Name', value: user.firstName, icon: User },
-    { label: 'Mobile', value: user.mobile || 'N/A', icon: Smartphone },
-    { label: 'Email', value: user.email, icon: Mail },
-    { label: 'Company Name', value: user.companyName || 'ICSS', icon: Building2 },
-    { label: 'Position', value: user.position || '專員', icon: User },
+    { label: t('user.dashboard.info.protectVersion'), value: user.protectVersion || 'Customized', icon: Shield },
+    { label: t('user.dashboard.info.country'), value: user.country || 'Vietnam', icon: MapPin },
+    { label: t('user.dashboard.info.lastName'), value: user.lastName, icon: User },
+    { label: t('user.dashboard.info.firstName'), value: user.firstName, icon: User },
+    { label: t('user.dashboard.info.mobile'), value: user.mobile || 'N/A', icon: Smartphone },
+    { label: t('user.dashboard.info.email'), value: user.email, icon: Mail },
+    { label: t('user.dashboard.info.companyName'), value: user.companyName || 'ICSS', icon: Building2 },
+    { label: t('user.dashboard.info.position'), value: user.position || '專員', icon: User },
   ];
 
   return (
@@ -98,10 +100,10 @@ export default function UserDashboard() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-3xl font-bold text-white mb-2">
-          Welcome back, {user.firstName}! 👋
+          {t('user.dashboard.title')}, {user.firstName}! 👋
         </h1>
         <p className="text-slate-400">
-          Here's your account overview and security statistics
+          {t('user.dashboard.subtitle')}
         </p>
       </motion.div>
 
@@ -145,8 +147,8 @@ export default function UserDashboard() {
                 <User className="w-10 h-10 text-white" />
               </div>
               <div>
-                <CardTitle>Member Center</CardTitle>
-                <p className="text-slate-400 mt-1">Your account information</p>
+                <CardTitle>{t('user.dashboard.memberCenter')}</CardTitle>
+                <p className="text-slate-400 mt-1">{t('user.dashboard.memberCenterSubtitle')}</p>
               </div>
             </div>
           </CardHeader>
@@ -185,14 +187,14 @@ export default function UserDashboard() {
       >
         <Card>
           <CardHeader>
-            <CardTitle>Times Remaining</CardTitle>
+            <CardTitle>{t('user.dashboard.timesRemaining')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-slate-400">Android</span>
-                  <span className="text-white font-semibold">{user.androidTimes || 45} Times</span>
+                  <span className="text-white font-semibold">{user.androidTimes || 45} {t('user.dashboard.times')}</span>
                 </div>
                 <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                   <div
@@ -204,7 +206,7 @@ export default function UserDashboard() {
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-slate-400">iOS</span>
-                  <span className="text-white font-semibold">{user.iosTimes || 50} Times</span>
+                  <span className="text-white font-semibold">{user.iosTimes || 50} {t('user.dashboard.times')}</span>
                 </div>
                 <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                   <div

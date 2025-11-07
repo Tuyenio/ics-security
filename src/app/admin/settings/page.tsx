@@ -6,8 +6,10 @@ import { Settings, Save, Mail, Shield, Database, Bell, Globe, Lock, Key } from '
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function SettingsPage() {
+  const { t } = useLanguage();
   const [settings, setSettings] = useState({
     // General Settings
     siteName: 'ICS Security Platform',
@@ -55,9 +57,9 @@ export default function SettingsPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">System Settings</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.settings.title')}</h1>
             <p className="text-slate-400">
-              Configure platform-wide settings and preferences
+              {t('admin.settings.subtitle')}
             </p>
           </div>
           <Button 
@@ -66,7 +68,7 @@ export default function SettingsPage() {
             isLoading={isSaving}
           >
             <Save className="w-5 h-5 mr-2" />
-            Save Changes
+            {t('admin.settings.saveChanges')}
           </Button>
         </div>
       </motion.div>
@@ -80,8 +82,8 @@ export default function SettingsPage() {
                 <Globe className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <CardTitle>General Settings</CardTitle>
-                <CardDescription>Basic platform configuration</CardDescription>
+                <CardTitle>{t('admin.settings.general.title')}</CardTitle>
+                <CardDescription>{t('admin.settings.general.subtitle')}</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -89,7 +91,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Site Name
+                  {t('admin.settings.general.siteName')}
                 </label>
                 <Input
                   value={settings.siteName}
@@ -99,7 +101,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Site URL
+                  {t('admin.settings.general.siteUrl')}
                 </label>
                 <Input
                   value={settings.siteUrl}
@@ -109,7 +111,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Admin Email
+                  {t('admin.settings.general.adminEmail')}
                 </label>
                 <Input
                   type="email"
@@ -120,7 +122,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Support Email
+                  {t('admin.settings.general.supportEmail')}
                 </label>
                 <Input
                   type="email"
@@ -143,8 +145,8 @@ export default function SettingsPage() {
                 <Shield className="w-5 h-5 text-red-400" />
               </div>
               <div>
-                <CardTitle>Security Settings</CardTitle>
-                <CardDescription>Authentication and access control</CardDescription>
+                <CardTitle>{t('admin.settings.security.title')}</CardTitle>
+                <CardDescription>{t('admin.settings.security.subtitle')}</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -152,7 +154,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Session Timeout (minutes)
+                  {t('admin.settings.security.sessionTimeout')}
                 </label>
                 <Input
                   type="number"
@@ -162,7 +164,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Max Login Attempts
+                  {t('admin.settings.security.maxLoginAttempts')}
                 </label>
                 <Input
                   type="number"
@@ -172,7 +174,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Password Min Length
+                  {t('admin.settings.security.passwordMinLength')}
                 </label>
                 <Input
                   type="number"
@@ -182,7 +184,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Two-Factor Authentication
+                  {t('admin.settings.security.requireTwoFactor')}
                 </label>
                 <div className="flex items-center gap-3 mt-3">
                   <button
@@ -198,7 +200,7 @@ export default function SettingsPage() {
                     />
                   </button>
                   <span className="text-sm text-slate-400">
-                    {settings.requireTwoFactor ? 'Enabled' : 'Disabled'}
+                    {settings.requireTwoFactor ? t('admin.settings.security.enable') : t('admin.settings.security.disable')}
                   </span>
                 </div>
               </div>
@@ -216,8 +218,8 @@ export default function SettingsPage() {
                 <Mail className="w-5 h-5 text-cyan-400" />
               </div>
               <div>
-                <CardTitle>Email Settings</CardTitle>
-                <CardDescription>SMTP configuration for email delivery</CardDescription>
+                <CardTitle>{t('admin.settings.email.title')}</CardTitle>
+                <CardDescription>{t('admin.settings.email.subtitle')}</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -225,7 +227,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  SMTP Host
+                  {t('admin.settings.email.smtpHost')}
                 </label>
                 <Input
                   value={settings.smtpHost}
@@ -235,7 +237,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  SMTP Port
+                  {t('admin.settings.email.smtpPort')}
                 </label>
                 <Input
                   value={settings.smtpPort}
@@ -245,7 +247,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  SMTP Username
+                  {t('admin.settings.email.smtpUser')}
                 </label>
                 <Input
                   value={settings.smtpUser}
@@ -255,7 +257,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  SMTP Password
+                  {t('admin.settings.email.smtpPassword')}
                 </label>
                 <Input
                   type="password"
@@ -266,7 +268,7 @@ export default function SettingsPage() {
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Email From Name
+                  {t('admin.settings.email.emailFromName')}
                 </label>
                 <Input
                   value={settings.emailFromName}
@@ -288,8 +290,8 @@ export default function SettingsPage() {
                 <Key className="w-5 h-5 text-purple-400" />
               </div>
               <div>
-                <CardTitle>API Settings</CardTitle>
-                <CardDescription>API rate limiting and configuration</CardDescription>
+                <CardTitle>{t('admin.settings.api.title')}</CardTitle>
+                <CardDescription>{t('admin.settings.api.subtitle')}</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -297,7 +299,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Rate Limit (requests/hour)
+                  {t('admin.settings.api.apiRateLimit')}
                 </label>
                 <Input
                   type="number"
@@ -307,7 +309,7 @@ export default function SettingsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Timeout (seconds)
+                  {t('admin.settings.api.apiTimeout')}
                 </label>
                 <Input
                   type="number"
@@ -330,8 +332,8 @@ export default function SettingsPage() {
                     />
                   </button>
                   <div>
-                    <p className="text-sm font-medium text-slate-300">Enable API Logging</p>
-                    <p className="text-xs text-slate-500">Log all API requests for debugging</p>
+                    <p className="text-sm font-medium text-slate-300">{t('admin.settings.api.enableApiLogging')}</p>
+                    <p className="text-xs text-slate-500">{t('admin.settings.api.logAllRequests')}</p>
                   </div>
                 </div>
               </div>
@@ -389,15 +391,15 @@ export default function SettingsPage() {
                   />
                 </button>
                 <div>
-                  <p className="text-sm font-medium text-slate-300">Slack Notifications</p>
-                  <p className="text-xs text-slate-500">Send notifications to Slack channel</p>
+                  <p className="text-sm font-medium text-slate-300">{t('admin.settings.notifications.slackNotifications')}</p>
+                  <p className="text-xs text-slate-500">{t('admin.settings.notifications.enableSlack')}</p>
                 </div>
               </div>
 
               {settings.slackNotifications && (
                 <div className="mt-4">
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Slack Webhook URL
+                    {t('admin.settings.notifications.slackWebhook')}
                   </label>
                   <Input
                     value={settings.slackWebhook}

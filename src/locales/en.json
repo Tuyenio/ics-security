@@ -236,5 +236,494 @@
       "confirmRequired": "Please confirm your password",
       "passwordMismatch": "Passwords do not match"
     }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Welcome, Admin",
+      "subtitle": "Here's an overview of your security platform performance",
+      "stats": {
+        "totalUsers": "Total Users",
+        "activeSessions": "Active Sessions",
+        "totalScans": "Total Scans",
+        "threatsDetected": "Threats Detected"
+      },
+      "serviceUsage": "Service Usage",
+      "recentActivity": "Recent Activity"
+    },
+    "users": {
+      "title": "User Management",
+      "subtitle": "Manage user accounts and permissions",
+      "createUser": "Create User",
+      "stats": {
+        "totalUsers": "Total Users",
+        "adminUsers": "Admin Users",
+        "regularUsers": "Regular Users",
+        "activeToday": "Active Today"
+      },
+      "search": "Search users...",
+      "filterByRole": "Filter by role",
+      "allRoles": "All Roles",
+      "adminOnly": "Admin Only",
+      "userOnly": "User Only",
+      "table": {
+        "user": "User",
+        "email": "Email",
+        "role": "Role",
+        "company": "Company",
+        "times": "Times",
+        "lastLogin": "Last Login",
+        "actions": "Actions"
+      },
+      "active": "Active",
+      "inactive": "Inactive",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "analytics": {
+      "title": "Analytics & Reports",
+      "subtitle": "Detailed insights and performance metrics",
+      "exportReport": "Export Report"
+    },
+    "apkProtect": {
+      "title": "APK Protection Management",
+      "subtitle": "Monitor and manage Android application protection",
+      "stats": {
+        "totalProtections": "Total Protections",
+        "activeUsers": "Active Users",
+        "processing": "Processing",
+        "completedToday": "Completed Today"
+      },
+      "search": "Search by user, email, or filename...",
+      "filterByStatus": "Filter by status",
+      "allStatus": "All Status",
+      "completed": "Completed",
+      "processing": "Processing",
+      "failed": "Failed",
+      "pending": "Pending",
+      "table": {
+        "user": "User",
+        "file": "File",
+        "package": "Package",
+        "protection": "Protection Level",
+        "features": "Features",
+        "times": "Times",
+        "uploaded": "Uploaded",
+        "completed": "Completed",
+        "status": "Status"
+      },
+      "viewDetails": "View Details",
+      "download": "Download"
+    },
+    "iosProtect": {
+      "title": "iOS Protection Management",
+      "subtitle": "Monitor and manage iOS application protection",
+      "stats": {
+        "totalProtections": "Total Protections",
+        "activeUsers": "Active Users",
+        "processing": "Processing",
+        "completedToday": "Completed Today"
+      },
+      "table": {
+        "user": "User",
+        "file": "File",
+        "bundle": "Bundle ID",
+        "protection": "Protection Level",
+        "features": "Features",
+        "times": "Times",
+        "uploaded": "Uploaded",
+        "completed": "Completed",
+        "status": "Status"
+      }
+    },
+    "sourceCode": {
+      "title": "Source Code Analysis",
+      "subtitle": "Monitor and manage all source code security scans",
+      "stats": {
+        "totalScans": "Total Scans",
+        "activeUsers": "Active Users",
+        "criticalIssues": "Critical Issues",
+        "completedToday": "Completed Today"
+      },
+      "table": {
+        "user": "User",
+        "file": "File",
+        "language": "Language",
+        "lines": "Lines",
+        "issues": "Issues",
+        "critical": "Critical",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low",
+        "scanned": "Scanned",
+        "completed": "Completed",
+        "status": "Status"
+      }
+    },
+    "compatibility": {
+      "title": "Compatibility Testing",
+      "subtitle": "Monitor and manage application compatibility tests",
+      "stats": {
+        "totalTests": "Total Tests",
+        "activeUsers": "Active Users",
+        "testing": "Testing",
+        "completedToday": "Completed Today"
+      },
+      "table": {
+        "user": "User",
+        "file": "File",
+        "package": "Package",
+        "versions": "Android Versions",
+        "devices": "Devices Tested",
+        "duration": "Duration",
+        "compatibility": "Compatibility",
+        "uploaded": "Uploaded",
+        "completed": "Completed",
+        "status": "Status"
+      }
+    },
+    "appTotal": {
+      "title": "App Total Go Management",
+      "subtitle": "Monitor and manage comprehensive application security scans",
+      "stats": {
+        "totalScans": "Total Scans",
+        "activeUsers": "Active Users",
+        "threatsDetected": "Threats Detected",
+        "cleanApps": "Clean Apps"
+      },
+      "table": {
+        "user": "User",
+        "file": "File",
+        "platform": "Platform",
+        "threats": "Threats",
+        "vulnerabilities": "Vulnerabilities",
+        "riskScore": "Risk Score",
+        "scanned": "Scanned",
+        "completed": "Completed",
+        "status": "Status"
+      }
+    },
+    "malware": {
+      "title": "Malware Intelligence",
+      "subtitle": "Monitor user access to threat intelligence reports",
+      "stats": {
+        "totalAccesses": "Total Accesses",
+        "activeUsers": "Active Users",
+        "criticalReports": "Critical Reports",
+        "todayAccess": "Today's Access"
+      },
+      "filterByAction": "Filter by action",
+      "allActions": "All Actions",
+      "view": "View",
+      "download": "Download",
+      "export": "Export",
+      "search": "Search",
+      "table": {
+        "user": "User",
+        "report": "Report",
+        "type": "Type",
+        "threat": "Threat Level",
+        "category": "Category",
+        "accessed": "Accessed",
+        "duration": "Duration",
+        "action": "Action",
+        "ip": "IP Address"
+      }
+    },
+    "settings": {
+      "title": "System Settings",
+      "subtitle": "Configure platform-wide settings and preferences",
+      "saveChanges": "Save Changes",
+      "general": {
+        "title": "General Settings",
+        "subtitle": "Basic platform configuration",
+        "siteName": "Site Name",
+        "siteUrl": "Site URL",
+        "adminEmail": "Admin Email",
+        "supportEmail": "Support Email"
+      },
+      "security": {
+        "title": "Security Settings",
+        "subtitle": "Authentication and access control",
+        "sessionTimeout": "Session Timeout (minutes)",
+        "maxLoginAttempts": "Max Login Attempts",
+        "passwordMinLength": "Password Min Length",
+        "requireTwoFactor": "Require Two-Factor Authentication",
+        "enable": "Enabled",
+        "disable": "Disabled"
+      },
+      "email": {
+        "title": "Email Settings",
+        "subtitle": "SMTP configuration for email delivery",
+        "smtpHost": "SMTP Host",
+        "smtpPort": "SMTP Port",
+        "smtpUser": "SMTP Username",
+        "smtpPassword": "SMTP Password",
+        "emailFromName": "Email From Name"
+      },
+      "api": {
+        "title": "API Settings",
+        "subtitle": "API configuration and limits",
+        "apiRateLimit": "API Rate Limit (requests/hour)",
+        "apiTimeout": "API Timeout (seconds)",
+        "enableApiLogging": "Enable API Request Logging",
+        "logAllRequests": "Log all API requests for debugging and monitoring"
+      },
+      "notifications": {
+        "title": "Notification Settings",
+        "subtitle": "Configure notification channels",
+        "emailNotifications": "Email Notifications",
+        "enableEmail": "Enable email notifications for important events",
+        "slackNotifications": "Slack Notifications",
+        "enableSlack": "Enable Slack notifications for critical alerts",
+        "slackWebhook": "Slack Webhook URL"
+      }
+    },
+    "common": {
+      "exportReport": "Export Report",
+      "viewDetails": "View Details",
+      "download": "Download",
+      "edit": "Edit",
+      "delete": "Delete",
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "page": "Page",
+        "of": "of"
+      }
+    }
+  },
+  "sidebar": {
+    "user": {
+      "userCenter": "User Center",
+      "sourceCodeAnalysis": "Source Code Analysis",
+      "compatibility": "Compatibility",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "APK Protect",
+      "iosProtect": "iOS Protect",
+      "malwareIntelligence": "Malware Intelligence",
+      "changePassword": "Change Password"
+    },
+    "admin": {
+      "dashboard": "Dashboard",
+      "userManagement": "User Management",
+      "analytics": "Analytics",
+      "sourceCodeAnalysis": "Source Code Analysis",
+      "compatibility": "Compatibility",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "APK Protect",
+      "iosProtect": "iOS Protect",
+      "malwareIntelligence": "Malware Intelligence",
+      "settings": "Settings"
+    },
+    "expandSidebar": "Expand sidebar",
+    "collapseSidebar": "Collapse sidebar"
+  },
+  "header": {
+    "search": "Search...",
+    "notifications": "Notifications",
+    "markAllRead": "Mark all as read",
+    "noNotifications": "No notifications",
+    "viewAll": "View all notifications",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "user": {
+    "dashboard": {
+      "title": "Welcome back",
+      "subtitle": "Here's your account overview and security statistics",
+      "stats": {
+        "protectVersion": "Protect Version",
+        "androidTimes": "Android Times",
+        "iosTimes": "iOS Times",
+        "userType": "User Type"
+      },
+      "memberCenter": "Member Center",
+      "memberCenterSubtitle": "Your account information",
+      "timesRemaining": "Times Remaining",
+      "times": "Times",
+      "freeUser": "Free User",
+      "info": {
+        "protectVersion": "Protect Version",
+        "country": "Country",
+        "lastName": "Last Name",
+        "firstName": "First Name",
+        "mobile": "Mobile",
+        "email": "Email",
+        "companyName": "Company Name",
+        "position": "Position"
+      }
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "Update your password to keep your account secure",
+      "securitySettings": "Security Settings",
+      "currentPassword": "Current Password",
+      "currentPasswordPlaceholder": "Enter current password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter new password",
+      "confirmPassword": "Confirm New Password",
+      "confirmPasswordPlaceholder": "Confirm new password",
+      "updatePassword": "Update Password",
+      "successMessage": "Password changed successfully!",
+      "requirements": {
+        "title": "Password must contain:",
+        "minLength": "At least 8 characters",
+        "uppercase": "One uppercase letter",
+        "lowercase": "One lowercase letter",
+        "number": "One number",
+        "special": "One special character"
+      },
+      "errors": {
+        "currentRequired": "Current password is required",
+        "newRequired": "New password is required",
+        "invalidRequirements": "Password does not meet requirements",
+        "mismatch": "Passwords do not match",
+        "failed": "Failed to change password"
+      }
+    },
+    "sourceCodeAnalysis": {
+      "title": "Source Code Analysis",
+      "subtitle": "Reduce information security risks in the development stage through the analysis and discrimination of test reports.",
+      "uploadTitle": "Upload Source Code",
+      "timesRemaining": "Times Remaining",
+      "refresh": "Refresh",
+      "uploadPrompt": "Click to upload or drag and drop",
+      "uploading": "Uploading...",
+      "fileFormat": "ZIP files only (Max 2GB)",
+      "importantNotes": "Important Notes:",
+      "note1": "The file upload size is limited to 2 GB or less.",
+      "note2": "Only ZIP format is supported.",
+      "historyTitle": "Analysis History",
+      "table": {
+        "filename": "Filename",
+        "fileSize": "File Size",
+        "createTime": "Create Time",
+        "finishTime": "Finish Time",
+        "status": "Status",
+        "report": "Report"
+      },
+      "noFiles": "No files uploaded yet",
+      "download": "Download",
+      "status": {
+        "completed": "Completed",
+        "processing": "Processing",
+        "failed": "Failed",
+        "pending": "Pending"
+      }
+    },
+    "compatibility": {
+      "title": "Compatibility Testing",
+      "subtitle": "Provide professional Android application testing services with comprehensive testing on various real devices available in the market. Ensure your app runs smoothly across different brands, models, and Android versions.",
+      "uploadTitle": "Upload Application File",
+      "timesRemaining": "Times Remaining",
+      "refresh": "Refresh",
+      "uploadPrompt": "Upload File (apk, aab)",
+      "uploading": "Uploading...",
+      "fileFormat": "APK or AAB files only (Max 2GB)",
+      "importantNotes": "Important Notes:",
+      "note1": "The file upload size is limited to 2 GB or less.",
+      "note2": "The size of resource packs downloaded within the app is limited to 3 GB or less.",
+      "note3": "Supported formats: APK, AAB",
+      "historyTitle": "Testing History",
+      "table": {
+        "filename": "Filename",
+        "icon": "Icon",
+        "fileSize": "File Size",
+        "version": "Version",
+        "createTime": "Create Time",
+        "finishTime": "Finish Time",
+        "status": "Status",
+        "report": "Report"
+      },
+      "noFiles": "No files uploaded yet",
+      "download": "Download"
+    },
+    "appTotalGo": {
+      "title": "AppTotalGo",
+      "subtitle": "Use mainstream hacking tools to test source code protection, memory detection prevention, and integrity verification, and provide recommendations for improvements.",
+      "uploadTitle": "Upload Application File",
+      "timesRemaining": "Times Remaining",
+      "refresh": "Refresh",
+      "uploadPrompt": "Upload File (apk, aab, ipa)",
+      "uploading": "Uploading...",
+      "fileFormat": "APK, AAB or IPA files only (Max 2GB)",
+      "importantNotes": "Important Notes:",
+      "note1": "Use mainstream hacking tools to test source code protection",
+      "note2": "Memory detection prevention and integrity verification",
+      "note3": "Supported formats: APK, AAB, IPA",
+      "note4": "The file upload size is limited to 2 GB or less",
+      "table": {
+        "filename": "Filename",
+        "fileSize": "File Size",
+        "version": "Version",
+        "createTime": "Createtime",
+        "finishTime": "Finishtime",
+        "status": "Status",
+        "report": "Report"
+      },
+      "noFiles": "No files uploaded yet",
+      "download": "Download",
+      "viewReport": "View Report"
+    },
+    "apkProtect": {
+      "title": "APK Protect",
+      "subtitle": "Protect the app's security through data and code encryption, prevention of dynamic memory loading, and detection of hacking tools.",
+      "uploadTitle": "Protect Android Application",
+      "remainingTimes": "Remaining Times",
+      "refresh": "Refresh",
+      "downloadTool": "Download Signature Tool",
+      "uploadPrompt": "Upload APK File",
+      "dragDrop": "Drag and drop or click to upload",
+      "historyTitle": "Protection History",
+      "table": {
+        "filename": "Filename",
+        "icon": "Icon",
+        "fileSize": "File Size",
+        "version": "Version",
+        "createTime": "Createtime",
+        "finishTime": "Finishtime",
+        "status": "Status",
+        "download": "Download"
+      },
+      "noFiles": "No protected applications yet",
+      "download": "Download",
+      "completed": "Completed"
+    },
+    "iosProtect": {
+      "title": "iOS Protect",
+      "subtitle": "Protect the app's security through data and code encryption, prevention of dynamic memory loading, and detection of hacking tools.",
+      "uploadTitle": "iOS Application Protection",
+      "remainingTimes": "Remaining Times",
+      "refresh": "Refresh",
+      "uploadPrompt": "Upload iOS Application",
+      "dragDrop": "Drag and drop or click to upload IPA file",
+      "historyTitle": "Protection History",
+      "table": {
+        "filename": "Filename",
+        "fileSize": "File Size",
+        "version": "Version",
+        "createTime": "Createtime",
+        "finishTime": "Finishtime",
+        "status": "Status",
+        "download": "Download"
+      },
+      "noFiles": "No protected files yet",
+      "download": "Download",
+      "completed": "Completed"
+    },
+    "malwareIntelligence": {
+      "title": "Malware Intelligence",
+      "subtitle": "Collect the latest news on cyber attacks to help you stay informed of threat trends and remain vigilant at all times.",
+      "searchPlaceholder": "Search threat intelligence...",
+      "refresh": "Refresh",
+      "latestTitle": "Latest Threat Intelligence",
+      "noNews": "No news found",
+      "readMore": "Read more",
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next"
+      }
+    }
   }
 }

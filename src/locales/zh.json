@@ -236,5 +236,494 @@
       "confirmRequired": "请确认您的密码",
       "passwordMismatch": "密码不匹配"
     }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "欢迎，管理员",
+      "subtitle": "您的安全平台性能概览",
+      "stats": {
+        "totalUsers": "总用户数",
+        "activeSessions": "活动会话",
+        "totalScans": "总扫描数",
+        "threatsDetected": "检测到的威胁"
+      },
+      "serviceUsage": "服务使用情况",
+      "recentActivity": "最近活动"
+    },
+    "users": {
+      "title": "用户管理",
+      "subtitle": "管理用户帐户和权限",
+      "createUser": "创建用户",
+      "stats": {
+        "totalUsers": "总用户数",
+        "adminUsers": "管理员用户",
+        "regularUsers": "普通用户",
+        "activeToday": "今日活跃"
+      },
+      "search": "搜索用户...",
+      "filterByRole": "按角色筛选",
+      "allRoles": "所有角色",
+      "adminOnly": "仅管理员",
+      "userOnly": "仅用户",
+      "table": {
+        "user": "用户",
+        "email": "电子邮件",
+        "role": "角色",
+        "company": "公司",
+        "times": "次数",
+        "lastLogin": "最后登录",
+        "actions": "操作"
+      },
+      "active": "活跃",
+      "inactive": "不活跃",
+      "edit": "编辑",
+      "delete": "删除"
+    },
+    "analytics": {
+      "title": "分析与报告",
+      "subtitle": "详细的见解和性能指标",
+      "exportReport": "导出报告"
+    },
+    "apkProtect": {
+      "title": "APK保护管理",
+      "subtitle": "监控和管理Android应用程序保护",
+      "stats": {
+        "totalProtections": "总保护数",
+        "activeUsers": "活跃用户",
+        "processing": "处理中",
+        "completedToday": "今日完成"
+      },
+      "search": "按用户、电子邮件或文件名搜索...",
+      "filterByStatus": "按状态筛选",
+      "allStatus": "所有状态",
+      "completed": "已完成",
+      "processing": "处理中",
+      "failed": "失败",
+      "pending": "待处理",
+      "table": {
+        "user": "用户",
+        "file": "文件",
+        "package": "包名",
+        "protection": "保护级别",
+        "features": "功能",
+        "times": "次数",
+        "uploaded": "已上传",
+        "completed": "已完成",
+        "status": "状态"
+      },
+      "viewDetails": "查看详情",
+      "download": "下载"
+    },
+    "iosProtect": {
+      "title": "iOS保护管理",
+      "subtitle": "监控和管理iOS应用程序保护",
+      "stats": {
+        "totalProtections": "总保护数",
+        "activeUsers": "活跃用户",
+        "processing": "处理中",
+        "completedToday": "今日完成"
+      },
+      "table": {
+        "user": "用户",
+        "file": "文件",
+        "bundle": "Bundle ID",
+        "protection": "保护级别",
+        "features": "功能",
+        "times": "次数",
+        "uploaded": "已上传",
+        "completed": "已完成",
+        "status": "状态"
+      }
+    },
+    "sourceCode": {
+      "title": "源代码分析",
+      "subtitle": "监控和管理所有源代码安全扫描",
+      "stats": {
+        "totalScans": "总扫描数",
+        "activeUsers": "活跃用户",
+        "criticalIssues": "严重问题",
+        "completedToday": "今日完成"
+      },
+      "table": {
+        "user": "用户",
+        "file": "文件",
+        "language": "语言",
+        "lines": "行数",
+        "issues": "问题",
+        "critical": "严重",
+        "high": "高",
+        "medium": "中",
+        "low": "低",
+        "scanned": "已扫描",
+        "completed": "已完成",
+        "status": "状态"
+      }
+    },
+    "compatibility": {
+      "title": "兼容性测试",
+      "subtitle": "监控和管理应用程序兼容性测试",
+      "stats": {
+        "totalTests": "总测试数",
+        "activeUsers": "活跃用户",
+        "testing": "测试中",
+        "completedToday": "今日完成"
+      },
+      "table": {
+        "user": "用户",
+        "file": "文件",
+        "package": "包名",
+        "versions": "Android版本",
+        "devices": "测试设备",
+        "duration": "持续时间",
+        "compatibility": "兼容性",
+        "uploaded": "已上传",
+        "completed": "已完成",
+        "status": "状态"
+      }
+    },
+    "appTotal": {
+      "title": "App Total Go管理",
+      "subtitle": "监控和管理综合应用程序安全扫描",
+      "stats": {
+        "totalScans": "总扫描数",
+        "activeUsers": "活跃用户",
+        "threatsDetected": "检测到的威胁",
+        "cleanApps": "干净的应用"
+      },
+      "table": {
+        "user": "用户",
+        "file": "文件",
+        "platform": "平台",
+        "threats": "威胁",
+        "vulnerabilities": "漏洞",
+        "riskScore": "风险评分",
+        "scanned": "已扫描",
+        "completed": "已完成",
+        "status": "状态"
+      }
+    },
+    "malware": {
+      "title": "恶意软件情报",
+      "subtitle": "监控用户访问威胁情报报告",
+      "stats": {
+        "totalAccesses": "总访问次数",
+        "activeUsers": "活跃用户",
+        "criticalReports": "严重报告",
+        "todayAccess": "今日访问"
+      },
+      "filterByAction": "按操作筛选",
+      "allActions": "所有操作",
+      "view": "查看",
+      "download": "下载",
+      "export": "导出",
+      "search": "搜索",
+      "table": {
+        "user": "用户",
+        "report": "报告",
+        "type": "类型",
+        "threat": "威胁级别",
+        "category": "类别",
+        "accessed": "已访问",
+        "duration": "持续时间",
+        "action": "操作",
+        "ip": "IP地址"
+      }
+    },
+    "settings": {
+      "title": "系统设置",
+      "subtitle": "配置平台范围的设置和首选项",
+      "saveChanges": "保存更改",
+      "general": {
+        "title": "常规设置",
+        "subtitle": "基本平台配置",
+        "siteName": "网站名称",
+        "siteUrl": "网站URL",
+        "adminEmail": "管理员电子邮件",
+        "supportEmail": "支持电子邮件"
+      },
+      "security": {
+        "title": "安全设置",
+        "subtitle": "认证和访问控制",
+        "sessionTimeout": "会话超时（分钟）",
+        "maxLoginAttempts": "最大登录尝试次数",
+        "passwordMinLength": "密码最小长度",
+        "requireTwoFactor": "要求双因素认证",
+        "enable": "已启用",
+        "disable": "已禁用"
+      },
+      "email": {
+        "title": "电子邮件设置",
+        "subtitle": "用于电子邮件传递的SMTP配置",
+        "smtpHost": "SMTP主机",
+        "smtpPort": "SMTP端口",
+        "smtpUser": "SMTP用户名",
+        "smtpPassword": "SMTP密码",
+        "emailFromName": "发件人姓名"
+      },
+      "api": {
+        "title": "API设置",
+        "subtitle": "API配置和限制",
+        "apiRateLimit": "API速率限制（请求/小时）",
+        "apiTimeout": "API超时（秒）",
+        "enableApiLogging": "启用API请求日志",
+        "logAllRequests": "记录所有API请求以进行调试和监控"
+      },
+      "notifications": {
+        "title": "通知设置",
+        "subtitle": "配置通知渠道",
+        "emailNotifications": "电子邮件通知",
+        "enableEmail": "为重要事件启用电子邮件通知",
+        "slackNotifications": "Slack通知",
+        "enableSlack": "为严重警报启用Slack通知",
+        "slackWebhook": "Slack Webhook URL"
+      }
+    },
+    "common": {
+      "exportReport": "导出报告",
+      "viewDetails": "查看详情",
+      "download": "下载",
+      "edit": "编辑",
+      "delete": "删除",
+      "pagination": {
+        "previous": "上一页",
+        "next": "下一页",
+        "page": "第",
+        "of": "页，共"
+      }
+    }
+  },
+  "sidebar": {
+    "user": {
+      "userCenter": "用户中心",
+      "sourceCodeAnalysis": "源代码分析",
+      "compatibility": "兼容性测试",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "APK保护",
+      "iosProtect": "iOS保护",
+      "malwareIntelligence": "恶意软件情报",
+      "changePassword": "修改密码"
+    },
+    "admin": {
+      "dashboard": "仪表板",
+      "userManagement": "用户管理",
+      "analytics": "分析报告",
+      "sourceCodeAnalysis": "源代码分析",
+      "compatibility": "兼容性测试",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "APK保护",
+      "iosProtect": "iOS保护",
+      "malwareIntelligence": "恶意软件情报",
+      "settings": "设置"
+    },
+    "expandSidebar": "展开侧边栏",
+    "collapseSidebar": "收起侧边栏"
+  },
+  "header": {
+    "search": "搜索...",
+    "notifications": "通知",
+    "markAllRead": "全部标记为已读",
+    "noNotifications": "暂无通知",
+    "viewAll": "查看所有通知",
+    "profile": "个人资料",
+    "settings": "设置",
+    "logout": "退出登录"
+  },
+  "user": {
+    "dashboard": {
+      "title": "欢迎回来",
+      "subtitle": "您的账户概览和安全统计信息",
+      "stats": {
+        "protectVersion": "保护版本",
+        "androidTimes": "Android次数",
+        "iosTimes": "iOS次数",
+        "userType": "用户类型"
+      },
+      "memberCenter": "会员中心",
+      "memberCenterSubtitle": "您的账户信息",
+      "timesRemaining": "剩余次数",
+      "times": "次",
+      "freeUser": "免费用户",
+      "info": {
+        "protectVersion": "保护版本",
+        "country": "国家",
+        "lastName": "姓",
+        "firstName": "名",
+        "mobile": "手机",
+        "email": "邮箱",
+        "companyName": "公司名称",
+        "position": "职位"
+      }
+    },
+    "changePassword": {
+      "title": "修改密码",
+      "subtitle": "更新您的密码以保护账户安全",
+      "securitySettings": "安全设置",
+      "currentPassword": "当前密码",
+      "currentPasswordPlaceholder": "输入当前密码",
+      "newPassword": "新密码",
+      "newPasswordPlaceholder": "输入新密码",
+      "confirmPassword": "确认新密码",
+      "confirmPasswordPlaceholder": "确认新密码",
+      "updatePassword": "更新密码",
+      "successMessage": "密码修改成功！",
+      "requirements": {
+        "title": "密码必须包含：",
+        "minLength": "至少8个字符",
+        "uppercase": "一个大写字母",
+        "lowercase": "一个小写字母",
+        "number": "一个数字",
+        "special": "一个特殊字符"
+      },
+      "errors": {
+        "currentRequired": "请输入当前密码",
+        "newRequired": "请输入新密码",
+        "invalidRequirements": "密码不符合要求",
+        "mismatch": "密码不匹配",
+        "failed": "修改密码失败"
+      }
+    },
+    "sourceCodeAnalysis": {
+      "title": "源代码分析",
+      "subtitle": "通过分析和判别测试报告，降低开发阶段的信息安全风险。",
+      "uploadTitle": "上传源代码",
+      "timesRemaining": "剩余次数",
+      "refresh": "刷新",
+      "uploadPrompt": "点击上传或拖放",
+      "uploading": "上传中...",
+      "fileFormat": "仅支持ZIP文件（最大2GB）",
+      "importantNotes": "重要提示：",
+      "note1": "文件上传大小限制为2GB或更小。",
+      "note2": "仅支持ZIP格式。",
+      "historyTitle": "分析历史",
+      "table": {
+        "filename": "文件名",
+        "fileSize": "文件大小",
+        "createTime": "创建时间",
+        "finishTime": "完成时间",
+        "status": "状态",
+        "report": "报告"
+      },
+      "noFiles": "尚未上传文件",
+      "download": "下载",
+      "status": {
+        "completed": "已完成",
+        "processing": "处理中",
+        "failed": "失败",
+        "pending": "等待中"
+      }
+    },
+    "compatibility": {
+      "title": "兼容性测试",
+      "subtitle": "提供专业的Android应用测试服务，在市场上各种真实设备上进行全面测试。确保您的应用在不同品牌、型号和Android版本上顺畅运行。",
+      "uploadTitle": "上传应用文件",
+      "timesRemaining": "剩余次数",
+      "refresh": "刷新",
+      "uploadPrompt": "上传文件（apk，aab）",
+      "uploading": "上传中...",
+      "fileFormat": "仅支持APK或AAB文件（最大2GB）",
+      "importantNotes": "重要提示：",
+      "note1": "文件上传大小限制为2GB或更小。",
+      "note2": "应用内下载的资源包大小限制为3GB或更小。",
+      "note3": "支持格式：APK、AAB",
+      "historyTitle": "测试历史",
+      "table": {
+        "filename": "文件名",
+        "icon": "图标",
+        "fileSize": "文件大小",
+        "version": "版本",
+        "createTime": "创建时间",
+        "finishTime": "完成时间",
+        "status": "状态",
+        "report": "报告"
+      },
+      "noFiles": "尚未上传文件",
+      "download": "下载"
+    },
+    "appTotalGo": {
+      "title": "AppTotalGo",
+      "subtitle": "使用主流黑客工具测试源代码保护、内存检测防护和完整性验证，并提供改进建议。",
+      "uploadTitle": "上传应用文件",
+      "timesRemaining": "剩余次数",
+      "refresh": "刷新",
+      "uploadPrompt": "上传文件（apk，aab，ipa）",
+      "uploading": "上传中...",
+      "fileFormat": "仅支持APK、AAB或IPA文件（最大2GB）",
+      "importantNotes": "重要提示：",
+      "note1": "使用主流黑客工具测试源代码保护",
+      "note2": "内存检测防护和完整性验证",
+      "note3": "支持格式：APK、AAB、IPA",
+      "note4": "文件上传大小限制为2GB或更小",
+      "table": {
+        "filename": "文件名",
+        "fileSize": "文件大小",
+        "version": "版本",
+        "createTime": "创建时间",
+        "finishTime": "完成时间",
+        "status": "状态",
+        "report": "报告"
+      },
+      "noFiles": "尚未上传文件",
+      "download": "下载",
+      "viewReport": "查看报告"
+    },
+    "apkProtect": {
+      "title": "APK保护",
+      "subtitle": "通过数据和代码加密、防止动态内存加载和检测黑客工具来保护应用安全。",
+      "uploadTitle": "保护Android应用",
+      "remainingTimes": "剩余次数",
+      "refresh": "刷新",
+      "downloadTool": "下载签名工具",
+      "uploadPrompt": "上传APK文件",
+      "dragDrop": "拖放或点击上传",
+      "historyTitle": "保护历史",
+      "table": {
+        "filename": "文件名",
+        "icon": "图标",
+        "fileSize": "文件大小",
+        "version": "版本",
+        "createTime": "创建时间",
+        "finishTime": "完成时间",
+        "status": "状态",
+        "download": "下载"
+      },
+      "noFiles": "尚未保护任何应用",
+      "download": "下载",
+      "completed": "已完成"
+    },
+    "iosProtect": {
+      "title": "iOS保护",
+      "subtitle": "通过数据和代码加密、防止动态内存加载和检测黑客工具来保护应用安全。",
+      "uploadTitle": "iOS应用保护",
+      "remainingTimes": "剩余次数",
+      "refresh": "刷新",
+      "uploadPrompt": "上传iOS应用",
+      "dragDrop": "拖放或点击上传IPA文件",
+      "historyTitle": "保护历史",
+      "table": {
+        "filename": "文件名",
+        "fileSize": "文件大小",
+        "version": "版本",
+        "createTime": "创建时间",
+        "finishTime": "完成时间",
+        "status": "状态",
+        "download": "下载"
+      },
+      "noFiles": "尚未保护任何文件",
+      "download": "下载",
+      "completed": "已完成"
+    },
+    "malwareIntelligence": {
+      "title": "恶意软件情报",
+      "subtitle": "收集有关网络攻击的最新消息，帮助您了解威胁趋势并时刻保持警惕。",
+      "searchPlaceholder": "搜索威胁情报...",
+      "refresh": "刷新",
+      "latestTitle": "最新威胁情报",
+      "noNews": "未找到新闻",
+      "readMore": "阅读更多",
+      "pagination": {
+        "previous": "上一页",
+        "next": "下一页"
+      }
+    }
   }
 }

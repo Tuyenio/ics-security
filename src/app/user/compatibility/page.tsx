@@ -6,8 +6,10 @@ import { Upload, Smartphone, RefreshCw, Download, FileImage } from 'lucide-react
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { UploadedFile } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function CompatibilityPage() {
+  const { t } = useLanguage();
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [timesRemaining, setTimesRemaining] = useState(1);
@@ -96,10 +98,9 @@ export default function CompatibilityPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-3xl font-bold text-white mb-2">Compatibility Testing</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">{t('user.compatibility.title')}</h1>
         <p className="text-slate-400">
-          Provide professional Android application testing services with comprehensive testing on various real devices available in the market. 
-          Ensure your app runs smoothly across different brands, models, and Android versions.
+          {t('user.compatibility.subtitle')}
         </p>
       </motion.div>
 
@@ -113,12 +114,12 @@ export default function CompatibilityPage() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Upload Application File</CardTitle>
-                <CardDescription>Times Remaining: {timesRemaining}</CardDescription>
+                <CardTitle>{t('user.compatibility.uploadTitle')}</CardTitle>
+                <CardDescription>{t('user.compatibility.timesRemaining')}: {timesRemaining}</CardDescription>
               </div>
               <Button variant="outline" size="sm">
                 <RefreshCw className="w-4 h-4 mr-2" />
-                Refresh
+                {t('user.compatibility.refresh')}
               </Button>
             </div>
           </CardHeader>
@@ -142,10 +143,10 @@ export default function CompatibilityPage() {
                   </div>
                   <div>
                     <p className="text-white font-semibold mb-1">
-                      {isUploading ? 'Uploading...' : 'Upload File (apk, aab)'}
+                      {isUploading ? t('user.compatibility.uploading') : t('user.compatibility.uploadPrompt')}
                     </p>
                     <p className="text-sm text-slate-400">
-                      APK or AAB files only (Max 2GB)
+                      {t('user.compatibility.fileFormat')}
                     </p>
                   </div>
                 </div>
@@ -153,11 +154,11 @@ export default function CompatibilityPage() {
             </div>
 
             <div className="mt-4 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
-              <p className="text-sm text-cyan-300 font-medium mb-2">Important Notes:</p>
+              <p className="text-sm text-cyan-300 font-medium mb-2">{t('user.compatibility.importantNotes')}</p>
               <ul className="text-sm text-cyan-200 space-y-1 list-disc list-inside">
-                <li>The file upload size is limited to 2 GB or less.</li>
-                <li>The size of resource packs downloaded within the app is limited to 3 GB or less.</li>
-                <li>Supported formats: APK, AAB</li>
+                <li>{t('user.compatibility.note1')}</li>
+                <li>{t('user.compatibility.note2')}</li>
+                <li>{t('user.compatibility.note3')}</li>
               </ul>
             </div>
           </CardContent>
@@ -172,21 +173,21 @@ export default function CompatibilityPage() {
       >
         <Card>
           <CardHeader>
-            <CardTitle>Testing History</CardTitle>
+            <CardTitle>{t('user.compatibility.historyTitle')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800">
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Filename</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Icon</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">File Size</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Version</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Create Time</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Finish Time</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Status</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Report</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.filename')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.icon')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.fileSize')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.version')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.createTime')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.finishTime')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.status')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.compatibility.table.report')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -194,7 +195,7 @@ export default function CompatibilityPage() {
                     <tr>
                       <td colSpan={8} className="text-center py-12">
                         <Smartphone className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                        <p className="text-slate-400">No files uploaded yet</p>
+                        <p className="text-slate-400">{t('user.compatibility.noFiles')}</p>
                       </td>
                     </tr>
                   ) : (
@@ -221,7 +222,7 @@ export default function CompatibilityPage() {
                           {file.status === 'completed' && file.reportUrl ? (
                             <Button variant="ghost" size="sm">
                               <Download className="w-4 h-4 mr-2" />
-                              Download
+                              {t('user.compatibility.download')}
                             </Button>
                           ) : (
                             <span className="text-slate-500">-</span>

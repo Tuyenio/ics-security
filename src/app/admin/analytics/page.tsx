@@ -5,8 +5,10 @@ import { motion } from 'framer-motion';
 import { BarChart3, TrendingUp, Users, Activity, Download } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AnalyticsPage() {
+  const { t } = useLanguage();
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
 
   const stats = [
@@ -29,8 +31,8 @@ export default function AnalyticsPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Analytics</h1>
-            <p className="text-slate-400">Comprehensive platform performance metrics</p>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.analytics.title')}</h1>
+            <p className="text-slate-400">{t('admin.analytics.subtitle')}</p>
           </div>
           <div className="flex items-center gap-3">
             <select
@@ -44,7 +46,7 @@ export default function AnalyticsPage() {
             </select>
             <Button variant="outline" size="sm">
               <Download className="w-4 h-4 mr-2" />
-              Export
+              {t('admin.analytics.exportReport')}
             </Button>
           </div>
         </div>

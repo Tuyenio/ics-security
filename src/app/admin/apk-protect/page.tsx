@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Shield, Users, Clock, CheckCircle, Search, Filter, Download, Eye, Package } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProtectionRecord {
   id: string;
@@ -24,6 +25,7 @@ interface ProtectionRecord {
 }
 
 export default function AdminApkProtectPage() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'processing' | 'failed' | 'pending'>('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -97,25 +99,25 @@ export default function AdminApkProtectPage() {
 
   const stats = [
     { 
-      label: 'Total Protections', 
+      label: t('admin.apkProtect.stats.totalProtections'), 
       value: records.length, 
       color: 'from-blue-600 to-cyan-500', 
       icon: Shield 
     },
     { 
-      label: 'Active Users', 
+      label: t('admin.apkProtect.stats.activeUsers'), 
       value: new Set(records.map(r => r.userId)).size, 
       color: 'from-purple-600 to-pink-500', 
       icon: Users 
     },
     { 
-      label: 'Processing', 
+      label: t('admin.apkProtect.stats.processing'), 
       value: records.filter(r => r.status === 'processing').length, 
       color: 'from-yellow-600 to-orange-500', 
       icon: Clock 
     },
     { 
-      label: 'Completed Today', 
+      label: t('admin.apkProtect.stats.completedToday'), 
       value: records.filter(r => r.status === 'completed' && r.completionTime.includes('2025-10-27')).length, 
       color: 'from-green-600 to-emerald-500', 
       icon: CheckCircle 
@@ -157,14 +159,14 @@ export default function AdminApkProtectPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">APK Protect Management</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.apkProtect.title')}</h1>
             <p className="text-slate-400">
-              Monitor and manage all APK protection jobs
+              {t('admin.apkProtect.subtitle')}
             </p>
           </div>
           <Button variant="outline" size="sm">
             <Download className="w-4 h-4 mr-2" />
-            Export Report
+            {t('admin.common.exportReport')}
           </Button>
         </div>
       </motion.div>
@@ -199,7 +201,7 @@ export default function AdminApkProtectPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search by user, email, filename, or package name..."
+                  placeholder={t('admin.apkProtect.search')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -212,11 +214,11 @@ export default function AdminApkProtectPage() {
                   onChange={(e) => setStatusFilter(e.target.value as any)}
                   className="px-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="all">All Status</option>
-                  <option value="completed">Completed</option>
-                  <option value="processing">Processing</option>
-                  <option value="pending">Pending</option>
-                  <option value="failed">Failed</option>
+                  <option value="all">{t('admin.apkProtect.allStatus')}</option>
+                  <option value="completed">{t('admin.apkProtect.completed')}</option>
+                  <option value="processing">{t('admin.apkProtect.processing')}</option>
+                  <option value="pending">{t('admin.apkProtect.pending')}</option>
+                  <option value="failed">{t('admin.apkProtect.failed')}</option>
                 </select>
               </div>
             </div>
@@ -235,14 +237,14 @@ export default function AdminApkProtectPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800">
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">User</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">APK Details</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Protection Level</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Features</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Remaining Times</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Upload Time</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Status</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Actions</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.user')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.file')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.protection')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.features')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.times')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.uploaded')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.apkProtect.table.status')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.actions')}</th>
                   </tr>
                 </thead>
                 <tbody>

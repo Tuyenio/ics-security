@@ -6,8 +6,10 @@ import { Lock, Eye, EyeOff, CheckCircle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ChangePasswordPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -23,11 +25,11 @@ export default function ChangePasswordPage() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const passwordRequirements = [
-    { regex: /.{8,}/, text: 'At least 8 characters' },
-    { regex: /[A-Z]/, text: 'One uppercase letter' },
-    { regex: /[a-z]/, text: 'One lowercase letter' },
-    { regex: /[0-9]/, text: 'One number' },
-    { regex: /[^A-Za-z0-9]/, text: 'One special character' },
+    { regex: /.{8,}/, text: t('user.changePassword.requirements.minLength') },
+    { regex: /[A-Z]/, text: t('user.changePassword.requirements.uppercase') },
+    { regex: /[a-z]/, text: t('user.changePassword.requirements.lowercase') },
+    { regex: /[0-9]/, text: t('user.changePassword.requirements.number') },
+    { regex: /[^A-Za-z0-9]/, text: t('user.changePassword.requirements.special') },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,17 +37,17 @@ export default function ChangePasswordPage() {
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.currentPassword) {
-      newErrors.currentPassword = 'Current password is required';
+      newErrors.currentPassword = t('user.changePassword.errors.currentRequired');
     }
 
     if (!formData.newPassword) {
-      newErrors.newPassword = 'New password is required';
+      newErrors.newPassword = t('user.changePassword.errors.newRequired');
     } else if (!passwordRequirements.every(req => req.regex.test(formData.newPassword))) {
-      newErrors.newPassword = 'Password does not meet requirements';
+      newErrors.newPassword = t('user.changePassword.errors.invalidRequirements');
     }
 
     if (formData.newPassword !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+      newErrors.confirmPassword = t('user.changePassword.errors.mismatch');
     }
 
     setErrors(newErrors);
@@ -69,10 +71,10 @@ export default function ChangePasswordPage() {
         setTimeout(() => setIsSuccess(false), 3000);
       } else {
         const error = await response.json();
-        setErrors({ currentPassword: error.message || 'Failed to change password' });
+        setErrors({ currentPassword: error.message || t('user.changePassword.errors.failed') });
       }
     } catch (error) {
-      setErrors({ currentPassword: 'An error occurred. Please try again.' });
+      setErrors({ currentPassword: t('user.changePassword.errors.failed') });
     } finally {
       setIsLoading(false);
     }
@@ -81,8 +83,8 @@ export default function ChangePasswordPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-3xl font-bold text-white mb-2">Change Password</h1>
-        <p className="text-slate-400">Update your password to keep your account secure</p>
+        <h1 className="text-3xl font-bold text-white mb-2">{t('user.changePassword.title')}</h1>
+        <p className="text-slate-400">{t('user.changePassword.subtitle')}</p>
       </motion.div>
 
       {isSuccess && (
@@ -92,22 +94,22 @@ export default function ChangePasswordPage() {
           className="p-4 bg-green-500/10 border border-green-500/50 rounded-lg flex items-center gap-3"
         >
           <CheckCircle className="w-5 h-5 text-green-400" />
-          <p className="text-green-400">Password changed successfully!</p>
+          <p className="text-green-400">{t('user.changePassword.successMessage')}</p>
         </motion.div>
       )}
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
         <Card glass>
           <CardHeader>
-            <CardTitle>Security Settings</CardTitle>
+            <CardTitle>{t('user.changePassword.securitySettings')}</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="relative">
                 <Input
                   type={showPasswords.current ? 'text' : 'password'}
-                  label="Current Password"
-                  placeholder="Enter current password"
+                  label={t('user.changePassword.currentPassword')}
+                  placeholder={t('user.changePassword.currentPasswordPlaceholder')}
                   icon={<Lock className="w-5 h-5" />}
                   value={formData.currentPassword}
                   onChange={(e) => setFormData({ ...formData, currentPassword: e.target.value })}
@@ -125,8 +127,8 @@ export default function ChangePasswordPage() {
               <div className="relative">
                 <Input
                   type={showPasswords.new ? 'text' : 'password'}
-                  label="New Password"
-                  placeholder="Enter new password"
+                  label={t('user.changePassword.newPassword')}
+                  placeholder={t('user.changePassword.newPasswordPlaceholder')}
                   icon={<Lock className="w-5 h-5" />}
                   value={formData.newPassword}
                   onChange={(e) => setFormData({ ...formData, newPassword: e.target.value })}
@@ -142,7 +144,7 @@ export default function ChangePasswordPage() {
               </div>
 
               <div className="bg-slate-800/50 rounded-lg p-4 space-y-2">
-                <p className="text-sm font-medium text-slate-300 mb-2">Password must contain:</p>
+                <p className="text-sm font-medium text-slate-300 mb-2">{t('user.changePassword.requirements.title')}</p>
                 {passwordRequirements.map((req, index) => {
                   const isValid = req.regex.test(formData.newPassword);
                   return (
@@ -163,8 +165,8 @@ export default function ChangePasswordPage() {
               <div className="relative">
                 <Input
                   type={showPasswords.confirm ? 'text' : 'password'}
-                  label="Confirm New Password"
-                  placeholder="Confirm new password"
+                  label={t('user.changePassword.confirmPassword')}
+                  placeholder={t('user.changePassword.confirmPasswordPlaceholder')}
                   icon={<Lock className="w-5 h-5" />}
                   value={formData.confirmPassword}
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
@@ -180,7 +182,7 @@ export default function ChangePasswordPage() {
               </div>
 
               <Button type="submit" variant="primary" className="w-full" isLoading={isLoading}>
-                Update Password
+                {t('user.changePassword.updatePassword')}
               </Button>
             </form>
           </CardContent>

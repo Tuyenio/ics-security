@@ -6,8 +6,10 @@ import { Shield, Upload, Download, RefreshCw, FileText, CheckCircle } from 'luci
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { UploadedFile } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function APKProtectPage() {
+  const { t } = useLanguage();
   const [timesRemaining, setTimesRemaining] = useState(45);
   const [isUploading, setIsUploading] = useState(false);
   const [files, setFiles] = useState<UploadedFile[]>([
@@ -105,9 +107,9 @@ export default function APKProtectPage() {
   return (
     <div className="space-y-6">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-3xl font-bold text-white mb-2">APK Protect</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">{t('user.apkProtect.title')}</h1>
         <p className="text-slate-400">
-          Protect the app's security through data and code encryption, prevention of dynamic memory loading, and detection of hacking tools.
+          {t('user.apkProtect.subtitle')}
         </p>
       </motion.div>
 
@@ -116,17 +118,17 @@ export default function APKProtectPage() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Protect Android Application</CardTitle>
-                <CardDescription>Remaining Times: <span className="text-white font-semibold">{timesRemaining}</span></CardDescription>
+                <CardTitle>{t('user.apkProtect.uploadTitle')}</CardTitle>
+                <CardDescription>{t('user.apkProtect.remainingTimes')}: <span className="text-white font-semibold">{timesRemaining}</span></CardDescription>
               </div>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" onClick={handleRefresh}>
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Refresh
+                  {t('user.apkProtect.refresh')}
                 </Button>
                 <Button variant="primary" size="sm" className="bg-green-600 hover:bg-green-700">
                   <Download className="w-4 h-4 mr-2" />
-                  Download Signature Tool
+                  {t('user.apkProtect.downloadTool')}
                 </Button>
               </div>
             </div>
@@ -141,8 +143,8 @@ export default function APKProtectPage() {
                   <Upload className="w-8 h-8 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold mb-1">Upload APK File</p>
-                  <p className="text-sm text-slate-400">Drag and drop or click to upload</p>
+                  <p className="text-white font-semibold mb-1">{isUploading ? t('user.apkProtect.uploading') : t('user.apkProtect.uploadPrompt')}</p>
+                  <p className="text-sm text-slate-400">{t('user.apkProtect.dragDrop')}</p>
                 </div>
               </div>
             </div>
@@ -153,21 +155,21 @@ export default function APKProtectPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
         <Card>
           <CardHeader>
-            <CardTitle>Protection History</CardTitle>
+            <CardTitle>{t('user.apkProtect.historyTitle')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800">
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Filename</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Icon</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">File Size</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Version</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Createtime</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Finishtime</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Status</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Download</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.filename')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.icon')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.fileSize')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.version')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.createTime')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.finishTime')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.status')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('user.apkProtect.table.download')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -175,7 +177,7 @@ export default function APKProtectPage() {
                     <tr>
                       <td colSpan={8} className="text-center py-12">
                         <Shield className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                        <p className="text-slate-400">No protected applications yet</p>
+                        <p className="text-slate-400">{t('user.apkProtect.noFiles')}</p>
                       </td>
                     </tr>
                   ) : (
@@ -206,7 +208,7 @@ export default function APKProtectPage() {
                         <td className="py-3 px-4">
                           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400 border border-green-500/50 inline-flex items-center gap-1">
                             <CheckCircle className="w-3 h-3" />
-                            Completed
+                            {t('user.apkProtect.completed')}
                           </span>
                         </td>
                         <td className="py-3 px-4">
@@ -217,7 +219,7 @@ export default function APKProtectPage() {
                             onClick={() => handleDownload(file)}
                           >
                             <Download className="w-4 h-4 mr-1" />
-                            Download
+                            {t('user.apkProtect.download')}
                           </Button>
                         </td>
                       </motion.tr>

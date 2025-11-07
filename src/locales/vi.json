@@ -236,5 +236,494 @@
       "confirmRequired": "Vui lòng xác nhận mật khẩu",
       "passwordMismatch": "Mật khẩu không khớp"
     }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Chào mừng, Quản trị viên",
+      "subtitle": "Tổng quan hiệu suất nền tảng bảo mật của bạn",
+      "stats": {
+        "totalUsers": "Tổng người dùng",
+        "activeSessions": "Phiên hoạt động",
+        "totalScans": "Tổng quét",
+        "threatsDetected": "Mối đe dọa phát hiện"
+      },
+      "serviceUsage": "Sử dụng dịch vụ",
+      "recentActivity": "Hoạt động gần đây"
+    },
+    "users": {
+      "title": "Quản lý người dùng",
+      "subtitle": "Quản lý tài khoản và quyền người dùng",
+      "createUser": "Tạo người dùng",
+      "stats": {
+        "totalUsers": "Tổng người dùng",
+        "adminUsers": "Người dùng quản trị",
+        "regularUsers": "Người dùng thường",
+        "activeToday": "Hoạt động hôm nay"
+      },
+      "search": "Tìm kiếm người dùng...",
+      "filterByRole": "Lọc theo vai trò",
+      "allRoles": "Tất cả vai trò",
+      "adminOnly": "Chỉ quản trị viên",
+      "userOnly": "Chỉ người dùng",
+      "table": {
+        "user": "Người dùng",
+        "email": "Email",
+        "role": "Vai trò",
+        "company": "Công ty",
+        "times": "Số lần",
+        "lastLogin": "Lần đăng nhập cuối",
+        "actions": "Hành động"
+      },
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động",
+      "edit": "Chỉnh sửa",
+      "delete": "Xóa"
+    },
+    "analytics": {
+      "title": "Phân tích & Báo cáo",
+      "subtitle": "Chi tiết thông tin chi tiết và số liệu hiệu suất",
+      "exportReport": "Xuất báo cáo"
+    },
+    "apkProtect": {
+      "title": "Quản lý bảo vệ APK",
+      "subtitle": "Giám sát và quản lý bảo vệ ứng dụng Android",
+      "stats": {
+        "totalProtections": "Tổng bảo vệ",
+        "activeUsers": "Người dùng hoạt động",
+        "processing": "Đang xử lý",
+        "completedToday": "Hoàn thành hôm nay"
+      },
+      "search": "Tìm kiếm theo người dùng, email hoặc tên file...",
+      "filterByStatus": "Lọc theo trạng thái",
+      "allStatus": "Tất cả trạng thái",
+      "completed": "Hoàn thành",
+      "processing": "Đang xử lý",
+      "failed": "Thất bại",
+      "pending": "Chờ xử lý",
+      "table": {
+        "user": "Người dùng",
+        "file": "File",
+        "package": "Package",
+        "protection": "Mức bảo vệ",
+        "features": "Tính năng",
+        "times": "Lần",
+        "uploaded": "Đã tải lên",
+        "completed": "Hoàn thành",
+        "status": "Trạng thái"
+      },
+      "viewDetails": "Xem chi tiết",
+      "download": "Tải xuống"
+    },
+    "iosProtect": {
+      "title": "Quản lý bảo vệ iOS",
+      "subtitle": "Giám sát và quản lý bảo vệ ứng dụng iOS",
+      "stats": {
+        "totalProtections": "Tổng bảo vệ",
+        "activeUsers": "Người dùng hoạt động",
+        "processing": "Đang xử lý",
+        "completedToday": "Hoàn thành hôm nay"
+      },
+      "table": {
+        "user": "Người dùng",
+        "file": "File",
+        "bundle": "Bundle ID",
+        "protection": "Mức bảo vệ",
+        "features": "Tính năng",
+        "times": "Lần",
+        "uploaded": "Đã tải lên",
+        "completed": "Hoàn thành",
+        "status": "Trạng thái"
+      }
+    },
+    "sourceCode": {
+      "title": "Phân tích mã nguồn",
+      "subtitle": "Giám sát và quản lý tất cả quét bảo mật mã nguồn",
+      "stats": {
+        "totalScans": "Tổng quét",
+        "activeUsers": "Người dùng hoạt động",
+        "criticalIssues": "Vấn đề nghiêm trọng",
+        "completedToday": "Hoàn thành hôm nay"
+      },
+      "table": {
+        "user": "Người dùng",
+        "file": "File",
+        "language": "Ngôn ngữ",
+        "lines": "Dòng",
+        "issues": "Vấn đề",
+        "critical": "Nghiêm trọng",
+        "high": "Cao",
+        "medium": "Trung bình",
+        "low": "Thấp",
+        "scanned": "Đã quét",
+        "completed": "Hoàn thành",
+        "status": "Trạng thái"
+      }
+    },
+    "compatibility": {
+      "title": "Kiểm tra tương thích",
+      "subtitle": "Giám sát và quản lý kiểm tra tương thích ứng dụng",
+      "stats": {
+        "totalTests": "Tổng kiểm tra",
+        "activeUsers": "Người dùng hoạt động",
+        "testing": "Đang kiểm tra",
+        "completedToday": "Hoàn thành hôm nay"
+      },
+      "table": {
+        "user": "Người dùng",
+        "file": "File",
+        "package": "Package",
+        "versions": "Phiên bản Android",
+        "devices": "Thiết bị đã kiểm tra",
+        "duration": "Thời lượng",
+        "compatibility": "Tương thích",
+        "uploaded": "Đã tải lên",
+        "completed": "Hoàn thành",
+        "status": "Trạng thái"
+      }
+    },
+    "appTotal": {
+      "title": "Quản lý App Total Go",
+      "subtitle": "Giám sát và quản lý quét bảo mật ứng dụng toàn diện",
+      "stats": {
+        "totalScans": "Tổng quét",
+        "activeUsers": "Người dùng hoạt động",
+        "threatsDetected": "Mối đe dọa phát hiện",
+        "cleanApps": "Ứng dụng sạch"
+      },
+      "table": {
+        "user": "Người dùng",
+        "file": "File",
+        "platform": "Nền tảng",
+        "threats": "Mối đe dọa",
+        "vulnerabilities": "Lỗ hổng",
+        "riskScore": "Điểm rủi ro",
+        "scanned": "Đã quét",
+        "completed": "Hoàn thành",
+        "status": "Trạng thái"
+      }
+    },
+    "malware": {
+      "title": "Phân tích Malware",
+      "subtitle": "Giám sát truy cập người dùng vào báo cáo tình báo mối đe dọa",
+      "stats": {
+        "totalAccesses": "Tổng truy cập",
+        "activeUsers": "Người dùng hoạt động",
+        "criticalReports": "Báo cáo nghiêm trọng",
+        "todayAccess": "Truy cập hôm nay"
+      },
+      "filterByAction": "Lọc theo hành động",
+      "allActions": "Tất cả hành động",
+      "view": "Xem",
+      "download": "Tải xuống",
+      "export": "Xuất",
+      "search": "Tìm kiếm",
+      "table": {
+        "user": "Người dùng",
+        "report": "Báo cáo",
+        "type": "Loại",
+        "threat": "Mức đe dọa",
+        "category": "Danh mục",
+        "accessed": "Đã truy cập",
+        "duration": "Thời lượng",
+        "action": "Hành động",
+        "ip": "Địa chỉ IP"
+      }
+    },
+    "settings": {
+      "title": "Cài đặt hệ thống",
+      "subtitle": "Cấu hình cài đặt và tùy chọn toàn nền tảng",
+      "saveChanges": "Lưu thay đổi",
+      "general": {
+        "title": "Cài đặt chung",
+        "subtitle": "Cấu hình nền tảng cơ bản",
+        "siteName": "Tên trang",
+        "siteUrl": "URL trang",
+        "adminEmail": "Email quản trị",
+        "supportEmail": "Email hỗ trợ"
+      },
+      "security": {
+        "title": "Cài đặt bảo mật",
+        "subtitle": "Xác thực và kiểm soát truy cập",
+        "sessionTimeout": "Thời gian chờ phiên (phút)",
+        "maxLoginAttempts": "Số lần đăng nhập tối đa",
+        "passwordMinLength": "Độ dài mật khẩu tối thiểu",
+        "requireTwoFactor": "Yêu cầu xác thực hai yếu tố",
+        "enable": "Đã bật",
+        "disable": "Đã tắt"
+      },
+      "email": {
+        "title": "Cài đặt Email",
+        "subtitle": "Cấu hình SMTP để gửi email",
+        "smtpHost": "SMTP Host",
+        "smtpPort": "SMTP Port",
+        "smtpUser": "Tên đăng nhập SMTP",
+        "smtpPassword": "Mật khẩu SMTP",
+        "emailFromName": "Tên người gửi"
+      },
+      "api": {
+        "title": "Cài đặt API",
+        "subtitle": "Cấu hình và giới hạn API",
+        "apiRateLimit": "Giới hạn API (yêu cầu/giờ)",
+        "apiTimeout": "Thời gian chờ API (giây)",
+        "enableApiLogging": "Bật ghi log yêu cầu API",
+        "logAllRequests": "Ghi log tất cả yêu cầu API để gỡ lỗi và giám sát"
+      },
+      "notifications": {
+        "title": "Cài đặt thông báo",
+        "subtitle": "Cấu hình kênh thông báo",
+        "emailNotifications": "Thông báo Email",
+        "enableEmail": "Bật thông báo email cho sự kiện quan trọng",
+        "slackNotifications": "Thông báo Slack",
+        "enableSlack": "Bật thông báo Slack cho cảnh báo nghiêm trọng",
+        "slackWebhook": "URL Webhook Slack"
+      }
+    },
+    "common": {
+      "exportReport": "Xuất báo cáo",
+      "viewDetails": "Xem chi tiết",
+      "download": "Tải xuống",
+      "edit": "Chỉnh sửa",
+      "delete": "Xóa",
+      "pagination": {
+        "previous": "Trước",
+        "next": "Tiếp",
+        "page": "Trang",
+        "of": "của"
+      }
+    }
+  },
+  "sidebar": {
+    "user": {
+      "userCenter": "Trung tâm người dùng",
+      "sourceCodeAnalysis": "Phân tích mã nguồn",
+      "compatibility": "Kiểm tra tương thích",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "Bảo vệ APK",
+      "iosProtect": "Bảo vệ iOS",
+      "malwareIntelligence": "Tình báo phần mềm độc hại",
+      "changePassword": "Đổi mật khẩu"
+    },
+    "admin": {
+      "dashboard": "Bảng điều khiển",
+      "userManagement": "Quản lý người dùng",
+      "analytics": "Phân tích",
+      "sourceCodeAnalysis": "Phân tích mã nguồn",
+      "compatibility": "Kiểm tra tương thích",
+      "appTotalGo": "AppTotalGo",
+      "apkProtect": "Bảo vệ APK",
+      "iosProtect": "Bảo vệ iOS",
+      "malwareIntelligence": "Tình báo phần mềm độc hại",
+      "settings": "Cài đặt"
+    },
+    "expandSidebar": "Mở rộng thanh bên",
+    "collapseSidebar": "Thu gọn thanh bên"
+  },
+  "header": {
+    "search": "Tìm kiếm...",
+    "notifications": "Thông báo",
+    "markAllRead": "Đánh dấu tất cả đã đọc",
+    "noNotifications": "Không có thông báo",
+    "viewAll": "Xem tất cả thông báo",
+    "profile": "Hồ sơ",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất"
+  },
+  "user": {
+    "dashboard": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Tổng quan tài khoản và thống kê bảo mật của bạn",
+      "stats": {
+        "protectVersion": "Phiên bản bảo vệ",
+        "androidTimes": "Lượt Android",
+        "iosTimes": "Lượt iOS",
+        "userType": "Loại người dùng"
+      },
+      "memberCenter": "Trung tâm thành viên",
+      "memberCenterSubtitle": "Thông tin tài khoản của bạn",
+      "timesRemaining": "Lượt còn lại",
+      "times": "Lượt",
+      "freeUser": "Người dùng miễn phí",
+      "info": {
+        "protectVersion": "Phiên bản bảo vệ",
+        "country": "Quốc gia",
+        "lastName": "Họ",
+        "firstName": "Tên",
+        "mobile": "Điện thoại",
+        "email": "Email",
+        "companyName": "Tên công ty",
+        "position": "Chức vụ"
+      }
+    },
+    "changePassword": {
+      "title": "Đổi mật khẩu",
+      "subtitle": "Cập nhật mật khẩu để bảo mật tài khoản",
+      "securitySettings": "Cài đặt bảo mật",
+      "currentPassword": "Mật khẩu hiện tại",
+      "currentPasswordPlaceholder": "Nhập mật khẩu hiện tại",
+      "newPassword": "Mật khẩu mới",
+      "newPasswordPlaceholder": "Nhập mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu mới",
+      "confirmPasswordPlaceholder": "Xác nhận mật khẩu mới",
+      "updatePassword": "Cập nhật mật khẩu",
+      "successMessage": "Đổi mật khẩu thành công!",
+      "requirements": {
+        "title": "Mật khẩu phải chứa:",
+        "minLength": "Ít nhất 8 ký tự",
+        "uppercase": "Một chữ hoa",
+        "lowercase": "Một chữ thường",
+        "number": "Một số",
+        "special": "Một ký tự đặc biệt"
+      },
+      "errors": {
+        "currentRequired": "Vui lòng nhập mật khẩu hiện tại",
+        "newRequired": "Vui lòng nhập mật khẩu mới",
+        "invalidRequirements": "Mật khẩu không đáp ứng yêu cầu",
+        "mismatch": "Mật khẩu không khớp",
+        "failed": "Không thể đổi mật khẩu"
+      }
+    },
+    "sourceCodeAnalysis": {
+      "title": "Phân tích mã nguồn",
+      "subtitle": "Giảm thiểu rủi ro bảo mật thông tin trong giai đoạn phát triển thông qua phân tích và phân biệt báo cáo kiểm tra.",
+      "uploadTitle": "Tải lên mã nguồn",
+      "timesRemaining": "Lượt còn lại",
+      "refresh": "Làm mới",
+      "uploadPrompt": "Nhấp để tải lên hoặc kéo thả",
+      "uploading": "Đang tải lên...",
+      "fileFormat": "Chỉ file ZIP (Tối đa 2GB)",
+      "importantNotes": "Lưu ý quan trọng:",
+      "note1": "Kích thước tệp tải lên giới hạn tối đa 2 GB.",
+      "note2": "Chỉ hỗ trợ định dạng ZIP.",
+      "historyTitle": "Lịch sử phân tích",
+      "table": {
+        "filename": "Tên tệp",
+        "fileSize": "Kích thước",
+        "createTime": "Thời gian tạo",
+        "finishTime": "Thời gian hoàn thành",
+        "status": "Trạng thái",
+        "report": "Báo cáo"
+      },
+      "noFiles": "Chưa có tệp nào được tải lên",
+      "download": "Tải xuống",
+      "status": {
+        "completed": "Hoàn thành",
+        "processing": "Đang xử lý",
+        "failed": "Thất bại",
+        "pending": "Chờ xử lý"
+      }
+    },
+    "compatibility": {
+      "title": "Kiểm tra tương thích",
+      "subtitle": "Cung cấp dịch vụ kiểm tra ứng dụng Android chuyên nghiệp với thử nghiệm toàn diện trên nhiều thiết bị thực tế có sẵn trên thị trường. Đảm bảo ứng dụng của bạn hoạt động mượt mà trên các thương hiệu, mẫu mã và phiên bản Android khác nhau.",
+      "uploadTitle": "Tải lên tệp ứng dụng",
+      "timesRemaining": "Lượt còn lại",
+      "refresh": "Làm mới",
+      "uploadPrompt": "Tải lên tệp (apk, aab)",
+      "uploading": "Đang tải lên...",
+      "fileFormat": "Chỉ file APK hoặc AAB (Tối đa 2GB)",
+      "importantNotes": "Lưu ý quan trọng:",
+      "note1": "Kích thước tệp tải lên giới hạn tối đa 2 GB.",
+      "note2": "Kích thước gói tài nguyên tải xuống trong ứng dụng giới hạn tối đa 3 GB.",
+      "note3": "Định dạng hỗ trợ: APK, AAB",
+      "historyTitle": "Lịch sử kiểm tra",
+      "table": {
+        "filename": "Tên tệp",
+        "icon": "Biểu tượng",
+        "fileSize": "Kích thước",
+        "version": "Phiên bản",
+        "createTime": "Thời gian tạo",
+        "finishTime": "Thời gian hoàn thành",
+        "status": "Trạng thái",
+        "report": "Báo cáo"
+      },
+      "noFiles": "Chưa có tệp nào được tải lên",
+      "download": "Tải xuống"
+    },
+    "appTotalGo": {
+      "title": "AppTotalGo",
+      "subtitle": "Sử dụng các công cụ hack phổ biến để kiểm tra bảo vệ mã nguồn, phòng ngừa phát hiện bộ nhớ và xác minh tính toàn vẹn, đồng thời cung cấp khuyến nghị cải thiện.",
+      "uploadTitle": "Tải lên tệp ứng dụng",
+      "timesRemaining": "Lượt còn lại",
+      "refresh": "Làm mới",
+      "uploadPrompt": "Tải lên tệp (apk, aab, ipa)",
+      "uploading": "Đang tải lên...",
+      "fileFormat": "Chỉ file APK, AAB hoặc IPA (Tối đa 2GB)",
+      "importantNotes": "Lưu ý quan trọng:",
+      "note1": "Sử dụng công cụ hack phổ biến để kiểm tra bảo vệ mã nguồn",
+      "note2": "Phòng ngừa phát hiện bộ nhớ và xác minh tính toàn vẹn",
+      "note3": "Định dạng hỗ trợ: APK, AAB, IPA",
+      "note4": "Kích thước tệp tải lên giới hạn tối đa 2 GB",
+      "table": {
+        "filename": "Tên tệp",
+        "fileSize": "Kích thước",
+        "version": "Phiên bản",
+        "createTime": "Thời gian tạo",
+        "finishTime": "Thời gian hoàn thành",
+        "status": "Trạng thái",
+        "report": "Báo cáo"
+      },
+      "noFiles": "Chưa có tệp nào được tải lên",
+      "download": "Tải xuống",
+      "viewReport": "Xem báo cáo"
+    },
+    "apkProtect": {
+      "title": "Bảo vệ APK",
+      "subtitle": "Bảo vệ bảo mật ứng dụng thông qua mã hóa dữ liệu và mã, ngăn chặn tải bộ nhớ động và phát hiện công cụ hack.",
+      "uploadTitle": "Bảo vệ ứng dụng Android",
+      "remainingTimes": "Lượt còn lại",
+      "refresh": "Làm mới",
+      "downloadTool": "Tải công cụ ký",
+      "uploadPrompt": "Tải lên tệp APK",
+      "dragDrop": "Kéo thả hoặc nhấp để tải lên",
+      "historyTitle": "Lịch sử bảo vệ",
+      "table": {
+        "filename": "Tên tệp",
+        "icon": "Biểu tượng",
+        "fileSize": "Kích thước",
+        "version": "Phiên bản",
+        "createTime": "Thời gian tạo",
+        "finishTime": "Thời gian hoàn thành",
+        "status": "Trạng thái",
+        "download": "Tải xuống"
+      },
+      "noFiles": "Chưa có ứng dụng được bảo vệ",
+      "download": "Tải xuống",
+      "completed": "Hoàn thành"
+    },
+    "iosProtect": {
+      "title": "Bảo vệ iOS",
+      "subtitle": "Bảo vệ bảo mật ứng dụng thông qua mã hóa dữ liệu và mã, ngăn chặn tải bộ nhớ động và phát hiện công cụ hack.",
+      "uploadTitle": "Bảo vệ ứng dụng iOS",
+      "remainingTimes": "Lượt còn lại",
+      "refresh": "Làm mới",
+      "uploadPrompt": "Tải lên ứng dụng iOS",
+      "dragDrop": "Kéo thả hoặc nhấp để tải lên tệp IPA",
+      "historyTitle": "Lịch sử bảo vệ",
+      "table": {
+        "filename": "Tên tệp",
+        "fileSize": "Kích thước",
+        "version": "Phiên bản",
+        "createTime": "Thời gian tạo",
+        "finishTime": "Thời gian hoàn thành",
+        "status": "Trạng thái",
+        "download": "Tải xuống"
+      },
+      "noFiles": "Chưa có tệp được bảo vệ",
+      "download": "Tải xuống",
+      "completed": "Hoàn thành"
+    },
+    "malwareIntelligence": {
+      "title": "Tình báo phần mềm độc hại",
+      "subtitle": "Thu thập tin tức mới nhất về các cuộc tấn công mạng để giúp bạn cập nhật xu hướng mối đe dọa và luôn cảnh giác mọi lúc.",
+      "searchPlaceholder": "Tìm kiếm tình báo mối đe dọa...",
+      "refresh": "Làm mới",
+      "latestTitle": "Tình báo mối đe dọa mới nhất",
+      "noNews": "Không tìm thấy tin tức",
+      "readMore": "Đọc thêm",
+      "pagination": {
+        "previous": "Trước",
+        "next": "Tiếp"
+      }
+    }
   }
 }

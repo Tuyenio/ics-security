@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Smartphone, Users, Clock, CheckCircle, Search, Filter, Download, Eye } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TestRecord {
   id: string;
@@ -25,6 +26,7 @@ interface TestRecord {
 }
 
 export default function AdminCompatibilityPage() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'testing' | 'failed' | 'pending'>('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,25 +104,25 @@ export default function AdminCompatibilityPage() {
 
   const stats = [
     { 
-      label: 'Total Tests', 
+      label: t('admin.compatibility.stats.totalTests'), 
       value: records.length, 
       color: 'from-blue-600 to-cyan-500', 
       icon: Smartphone 
     },
     { 
-      label: 'Active Users', 
+      label: t('admin.compatibility.stats.activeUsers'), 
       value: new Set(records.map(r => r.userId)).size, 
       color: 'from-purple-600 to-pink-500', 
       icon: Users 
     },
     { 
-      label: 'Testing', 
+      label: t('admin.compatibility.stats.testing'), 
       value: records.filter(r => r.status === 'testing').length, 
       color: 'from-yellow-600 to-orange-500', 
       icon: Clock 
     },
     { 
-      label: 'Completed Today', 
+      label: t('admin.compatibility.stats.completedToday'), 
       value: records.filter(r => r.status === 'completed' && r.completionTime.includes('2025-11-05')).length, 
       color: 'from-green-600 to-emerald-500', 
       icon: CheckCircle 
@@ -159,14 +161,14 @@ export default function AdminCompatibilityPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Compatibility Testing Management</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.compatibility.title')}</h1>
             <p className="text-slate-400">
-              Monitor compatibility tests across various Android devices
+              {t('admin.compatibility.subtitle')}
             </p>
           </div>
           <Button variant="outline" size="sm">
             <Download className="w-4 h-4 mr-2" />
-            Export Report
+            {t('admin.common.exportReport')}
           </Button>
         </div>
       </motion.div>

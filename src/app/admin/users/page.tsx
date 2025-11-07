@@ -9,6 +9,7 @@ import Input from '@/components/ui/Input';
 import ConfirmModal from '@/components/ui/ConfirmModal';
 import UserModal from '@/components/ui/UserModal';
 import { User } from '@/types';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function UserManagementPage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -19,6 +20,7 @@ export default function UserManagementPage() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
+  const { t } = useLanguage();
 
   // Fetch users from API
   useEffect(() => {
@@ -138,14 +140,14 @@ export default function UserManagementPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">User Management</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.users.title')}</h1>
             <p className="text-slate-400">
-              Create, manage, and assign permissions to users
+              {t('admin.users.subtitle')}
             </p>
           </div>
           <Button variant="primary" onClick={handleCreateUser}>
             <Plus className="w-5 h-5 mr-2" />
-            Create User
+            {t('admin.users.createUser')}
           </Button>
         </div>
       </motion.div>
@@ -159,10 +161,10 @@ export default function UserManagementPage() {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
-          { label: 'Total Users', value: users.length, color: 'from-blue-600 to-cyan-500' },
-          { label: 'Admin Users', value: users.filter(u => u.role === 'admin').length, color: 'from-purple-600 to-pink-500' },
-          { label: 'Regular Users', value: users.filter(u => u.role === 'user').length, color: 'from-green-600 to-emerald-500' },
-          { label: 'Active Today', value: users.filter(u => u.lastLogin && new Date(u.lastLogin).toDateString() === new Date().toDateString()).length, color: 'from-orange-600 to-red-500' },
+          { label: t('admin.users.stats.totalUsers'), value: users.length, color: 'from-blue-600 to-cyan-500' },
+          { label: t('admin.users.stats.adminUsers'), value: users.filter(u => u.role === 'admin').length, color: 'from-purple-600 to-pink-500' },
+          { label: t('admin.users.stats.regularUsers'), value: users.filter(u => u.role === 'user').length, color: 'from-green-600 to-emerald-500' },
+          { label: t('admin.users.stats.activeToday'), value: users.filter(u => u.lastLogin && new Date(u.lastLogin).toDateString() === new Date().toDateString()).length, color: 'from-orange-600 to-red-500' },
         ].map((stat, index) => (
           <motion.div
             key={stat.label}
@@ -188,7 +190,7 @@ export default function UserManagementPage() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search by name, email, or company..."
+                  placeholder={t('admin.users.search')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -201,9 +203,9 @@ export default function UserManagementPage() {
                   onChange={(e) => setRoleFilter(e.target.value as any)}
                   className="px-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="all">All Roles</option>
-                  <option value="admin">Admin Only</option>
-                  <option value="user">User Only</option>
+                  <option value="all">{t('admin.users.allRoles')}</option>
+                  <option value="admin">{t('admin.users.adminOnly')}</option>
+                  <option value="user">{t('admin.users.userOnly')}</option>
                 </select>
               </div>
             </div>
@@ -222,13 +224,13 @@ export default function UserManagementPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800">
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">User</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Email</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Role</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Company</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Times</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Last Login</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Actions</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.user')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.email')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.role')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.company')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.times')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.lastLogin')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.users.table.actions')}</th>
                   </tr>
                 </thead>
                 <tbody>

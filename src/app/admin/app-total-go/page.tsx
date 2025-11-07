@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Shield, Users, AlertTriangle, CheckCircle, Search, Filter, Download, Eye, TrendingUp } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ScanRecord {
   id: string;
@@ -29,6 +30,7 @@ interface ScanRecord {
 }
 
 export default function AdminAppTotalGoPage() {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'completed' | 'processing' | 'failed'>('all');
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,25 +104,25 @@ export default function AdminAppTotalGoPage() {
 
   const stats = [
     { 
-      label: 'Total Scans', 
+      label: t('admin.appTotal.stats.totalScans'), 
       value: records.length, 
       color: 'from-blue-600 to-cyan-500', 
       icon: Shield 
     },
     { 
-      label: 'Active Users', 
+      label: t('admin.appTotal.stats.activeUsers'), 
       value: new Set(records.map(r => r.userId)).size, 
       color: 'from-purple-600 to-pink-500', 
       icon: Users 
     },
     { 
-      label: 'Threats Detected', 
+      label: t('admin.appTotal.stats.threatsDetected'), 
       value: records.reduce((sum, r) => sum + r.threats, 0), 
       color: 'from-red-600 to-orange-500', 
       icon: AlertTriangle 
     },
     { 
-      label: 'Clean Apps', 
+      label: t('admin.appTotal.stats.cleanApps'), 
       value: records.filter(r => r.threats === 0 && r.status === 'completed').length, 
       color: 'from-green-600 to-emerald-500', 
       icon: CheckCircle 
@@ -158,14 +160,14 @@ export default function AdminAppTotalGoPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">AppTotalGo Management</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">{t('admin.appTotal.title')}</h1>
             <p className="text-slate-400">
-              Monitor and manage all application security scans
+              {t('admin.appTotal.subtitle')}
             </p>
           </div>
           <Button variant="outline" size="sm">
             <Download className="w-4 h-4 mr-2" />
-            Export Report
+            {t('admin.common.exportReport')}
           </Button>
         </div>
       </motion.div>

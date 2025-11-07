@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Sidebar from '@/components/layout/Sidebar';
 import { User } from '@/types';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export default function UserLayout({
   children,
@@ -50,14 +51,16 @@ export default function UserLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0e27] flex">
-      <Sidebar role="user" />
-      <div className="flex-1 flex flex-col">
-        <Header user={user} onLogout={handleLogout} />
-        <main className="flex-1 p-6 overflow-y-auto">
-          {children}
-        </main>
+    <LanguageProvider>
+      <div className="min-h-screen bg-[#0a0e27] flex">
+        <Sidebar role="user" />
+        <div className="flex-1 flex flex-col">
+          <Header user={user} onLogout={handleLogout} />
+          <main className="flex-1 p-6 overflow-y-auto">
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
