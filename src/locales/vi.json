@@ -282,7 +282,35 @@
     "analytics": {
       "title": "Phân tích & Báo cáo",
       "subtitle": "Chi tiết thông tin chi tiết và số liệu hiệu suất",
-      "exportReport": "Xuất báo cáo"
+      "exportReport": "Xuất báo cáo",
+      "timeRange": {
+        "7d": "7 ngày qua",
+        "30d": "30 ngày qua",
+        "90d": "90 ngày qua"
+      },
+      "stats": {
+        "totalUploads": "Tổng tải lên",
+        "activeUsers": "Người dùng hoạt động",
+        "threatsDetected": "Mối đe dọa phát hiện",
+        "successRate": "Tỷ lệ thành công"
+      },
+      "servicePerformance": {
+        "title": "Hiệu suất dịch vụ",
+        "table": {
+          "service": "Dịch vụ",
+          "total": "Tổng",
+          "completed": "Hoàn thành",
+          "failed": "Thất bại",
+          "successRate": "Tỷ lệ thành công",
+          "avgTime": "Thời gian TB"
+        }
+      },
+      "charts": {
+        "uploadTrends": "Xu hướng tải lên",
+        "userActivity": "Hoạt động người dùng",
+        "chartPlaceholder": "Biểu đồ placeholder",
+        "integrateChart": "Tích hợp với thư viện biểu đồ"
+      }
     },
     "apkProtect": {
       "title": "Quản lý bảo vệ APK",
@@ -323,9 +351,16 @@
         "processing": "Đang xử lý",
         "completedToday": "Hoàn thành hôm nay"
       },
+      "search": "Tìm kiếm người dùng hoặc tệp...",
+      "allStatus": "Tất cả trạng thái",
+      "completed": "Hoàn thành",
+      "processing": "Đang xử lý",
+      "pending": "Chờ xử lý",
+      "failed": "Thất bại",
       "table": {
         "user": "Người dùng",
         "file": "File",
+        "iosVersion": "Phiên bản iOS",
         "bundle": "Bundle ID",
         "protection": "Mức bảo vệ",
         "features": "Tính năng",
@@ -664,7 +699,9 @@
       },
       "noFiles": "Chưa có tệp nào được tải lên",
       "download": "Tải xuống",
-      "viewReport": "Xem báo cáo"
+      "viewReport": "Xem báo cáo",
+      "completed": "Hoàn thành",
+      "failure": "Thất bại"
     },
     "apkProtect": {
       "title": "Bảo vệ APK",

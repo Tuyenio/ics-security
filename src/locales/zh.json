@@ -282,7 +282,35 @@
     "analytics": {
       "title": "分析与报告",
       "subtitle": "详细的见解和性能指标",
-      "exportReport": "导出报告"
+      "exportReport": "导出报告",
+      "timeRange": {
+        "7d": "最近7天",
+        "30d": "最近30天",
+        "90d": "最近90天"
+      },
+      "stats": {
+        "totalUploads": "总上传量",
+        "activeUsers": "活跃用户",
+        "threatsDetected": "检测到的威胁",
+        "successRate": "成功率"
+      },
+      "servicePerformance": {
+        "title": "服务性能",
+        "table": {
+          "service": "服务",
+          "total": "总计",
+          "completed": "已完成",
+          "failed": "失败",
+          "successRate": "成功率",
+          "avgTime": "平均时间"
+        }
+      },
+      "charts": {
+        "uploadTrends": "上传趋势",
+        "userActivity": "用户活动",
+        "chartPlaceholder": "图表占位符",
+        "integrateChart": "与图表库集成"
+      }
     },
     "apkProtect": {
       "title": "APK保护管理",
@@ -323,9 +351,16 @@
         "processing": "处理中",
         "completedToday": "今日完成"
       },
+      "search": "搜索用户或文件...",
+      "allStatus": "所有状态",
+      "completed": "已完成",
+      "processing": "处理中",
+      "pending": "待处理",
+      "failed": "失败",
       "table": {
         "user": "用户",
         "file": "文件",
+        "iosVersion": "iOS版本",
         "bundle": "Bundle ID",
         "protection": "保护级别",
         "features": "功能",
@@ -664,7 +699,9 @@
       },
       "noFiles": "尚未上传文件",
       "download": "下载",
-      "viewReport": "查看报告"
+      "viewReport": "查看报告",
+      "completed": "已完成",
+      "failure": "失败"
     },
     "apkProtect": {
       "title": "APK保护",

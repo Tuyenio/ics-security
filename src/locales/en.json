@@ -282,7 +282,35 @@
     "analytics": {
       "title": "Analytics & Reports",
       "subtitle": "Detailed insights and performance metrics",
-      "exportReport": "Export Report"
+      "exportReport": "Export Report",
+      "timeRange": {
+        "7d": "Last 7 days",
+        "30d": "Last 30 days",
+        "90d": "Last 90 days"
+      },
+      "stats": {
+        "totalUploads": "Total Uploads",
+        "activeUsers": "Active Users",
+        "threatsDetected": "Threats Detected",
+        "successRate": "Success Rate"
+      },
+      "servicePerformance": {
+        "title": "Service Performance",
+        "table": {
+          "service": "Service",
+          "total": "Total",
+          "completed": "Completed",
+          "failed": "Failed",
+          "successRate": "Success Rate",
+          "avgTime": "Avg Time"
+        }
+      },
+      "charts": {
+        "uploadTrends": "Upload Trends",
+        "userActivity": "User Activity",
+        "chartPlaceholder": "Chart placeholder",
+        "integrateChart": "Integrate with chart library"
+      }
     },
     "apkProtect": {
       "title": "APK Protection Management",
@@ -323,9 +351,16 @@
         "processing": "Processing",
         "completedToday": "Completed Today"
       },
+      "search": "Search users or files...",
+      "allStatus": "All Status",
+      "completed": "Completed",
+      "processing": "Processing",
+      "pending": "Pending",
+      "failed": "Failed",
       "table": {
         "user": "User",
         "file": "File",
+        "iosVersion": "iOS Version",
         "bundle": "Bundle ID",
         "protection": "Protection Level",
         "features": "Features",
@@ -664,7 +699,9 @@
       },
       "noFiles": "No files uploaded yet",
       "download": "Download",
-      "viewReport": "View Report"
+      "viewReport": "View Report",
+      "completed": "Completed",
+      "failure": "Failure"
     },
     "apkProtect": {
       "title": "APK Protect",

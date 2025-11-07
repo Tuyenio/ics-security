@@ -12,10 +12,10 @@ export default function AnalyticsPage() {
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('30d');
 
   const stats = [
-    { label: 'Total Uploads', value: '1,234', change: '+23%', trend: 'up' },
-    { label: 'Active Users', value: '156', change: '+12%', trend: 'up' },
-    { label: 'Threats Detected', value: '47', change: '-15%', trend: 'down' },
-    { label: 'Success Rate', value: '94.5%', change: '+2.3%', trend: 'up' },
+    { label: t('admin.analytics.stats.totalUploads'), value: '1,234', change: '+23%', trend: 'up' },
+    { label: t('admin.analytics.stats.activeUsers'), value: '156', change: '+12%', trend: 'up' },
+    { label: t('admin.analytics.stats.threatsDetected'), value: '47', change: '-15%', trend: 'down' },
+    { label: t('admin.analytics.stats.successRate'), value: '94.5%', change: '+2.3%', trend: 'up' },
   ];
 
   const serviceMetrics = [
@@ -40,9 +40,9 @@ export default function AnalyticsPage() {
               onChange={(e) => setTimeRange(e.target.value as any)}
               className="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="7d">Last 7 days</option>
-              <option value="30d">Last 30 days</option>
-              <option value="90d">Last 90 days</option>
+              <option value="7d">{t('admin.analytics.timeRange.7d')}</option>
+              <option value="30d">{t('admin.analytics.timeRange.30d')}</option>
+              <option value="90d">{t('admin.analytics.timeRange.90d')}</option>
             </select>
             <Button variant="outline" size="sm">
               <Download className="w-4 h-4 mr-2" />
@@ -87,19 +87,19 @@ export default function AnalyticsPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
         <Card>
           <CardHeader>
-            <CardTitle>Service Performance</CardTitle>
+            <CardTitle>{t('admin.analytics.servicePerformance.title')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-800">
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Service</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Total</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Completed</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Failed</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Success Rate</th>
-                    <th className="text-left py-3 px-4 text-slate-400 font-medium">Avg Time</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.service')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.total')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.completed')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.failed')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.successRate')}</th>
+                    <th className="text-left py-3 px-4 text-slate-400 font-medium">{t('admin.analytics.servicePerformance.table.avgTime')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -144,14 +144,14 @@ export default function AnalyticsPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
           <Card>
             <CardHeader>
-              <CardTitle>Upload Trends</CardTitle>
+              <CardTitle>{t('admin.analytics.charts.uploadTrends')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="h-64 flex items-center justify-center border-2 border-dashed border-slate-800 rounded-lg">
                 <div className="text-center">
                   <BarChart3 className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                  <p className="text-slate-400">Chart placeholder</p>
-                  <p className="text-sm text-slate-500 mt-1">Integrate with chart library</p>
+                  <p className="text-slate-400">{t('admin.analytics.charts.chartPlaceholder')}</p>
+                  <p className="text-sm text-slate-500 mt-1">{t('admin.analytics.charts.integrateChart')}</p>
                 </div>
               </div>
             </CardContent>
@@ -161,14 +161,14 @@ export default function AnalyticsPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
           <Card>
             <CardHeader>
-              <CardTitle>User Activity</CardTitle>
+              <CardTitle>{t('admin.analytics.charts.userActivity')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="h-64 flex items-center justify-center border-2 border-dashed border-slate-800 rounded-lg">
                 <div className="text-center">
                   <Activity className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-                  <p className="text-slate-400">Chart placeholder</p>
-                  <p className="text-sm text-slate-500 mt-1">Integrate with chart library</p>
+                  <p className="text-slate-400">{t('admin.analytics.charts.chartPlaceholder')}</p>
+                  <p className="text-sm text-slate-500 mt-1">{t('admin.analytics.charts.integrateChart')}</p>
                 </div>
               </div>
             </CardContent>
