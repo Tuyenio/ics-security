@@ -178,5 +178,63 @@
       "sitemap": "Sơ đồ trang"
     },
     "copyright": "ICS Cyber Security. Bản quyền thuộc về."
+  },
+  "auth": {
+    "login": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Đăng nhập để truy cập Nền tảng ICS Security",
+      "email": "Địa chỉ Email",
+      "emailPlaceholder": "email.cua.ban@congty.com",
+      "password": "Mật khẩu",
+      "passwordPlaceholder": "Nhập mật khẩu của bạn",
+      "rememberMe": "Ghi nhớ đăng nhập",
+      "forgotPassword": "Quên mật khẩu?",
+      "signIn": "Đăng nhập",
+      "signingIn": "Đang đăng nhập...",
+      "securedBy": "Được bảo vệ bởi",
+      "platform": "Nền tảng ICS Security",
+      "copyright": "© 2025 ICS. Bản quyền thuộc về."
+    },
+    "forgotPassword": {
+      "title": "Quên mật khẩu?",
+      "subtitle": "Đừng lo, chúng tôi sẽ gửi hướng dẫn đặt lại cho bạn.",
+      "email": "Địa chỉ Email",
+      "emailPlaceholder": "Nhập địa chỉ email của bạn",
+      "sendReset": "Gửi liên kết đặt lại",
+      "sending": "Đang gửi...",
+      "backToLogin": "Quay lại đăng nhập",
+      "success": "Kiểm tra Email của bạn",
+      "successMessage": "Chúng tôi đã gửi liên kết đặt lại mật khẩu đến",
+      "successInstruction": "Vui lòng kiểm tra hộp thư đến và làm theo hướng dẫn để đặt lại mật khẩu.",
+      "copyright": "© 2025 ICS Security. Bản quyền thuộc về.",
+      "emailRequired": "Vui lòng nhập email",
+      "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ"
+    },
+    "resetPassword": {
+      "title": "Đặt lại mật khẩu",
+      "subtitle": "Nhập mật khẩu mới của bạn bên dưới",
+      "newPassword": "Mật khẩu mới",
+      "newPasswordPlaceholder": "Nhập mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "confirmPasswordPlaceholder": "Xác nhận mật khẩu mới",
+      "resetPassword": "Đặt lại mật khẩu",
+      "resetting": "Đang đặt lại...",
+      "requirements": "Mật khẩu phải có:",
+      "requirement1": "Ít nhất 8 ký tự",
+      "requirement2": "Một chữ hoa",
+      "requirement3": "Một chữ thường",
+      "requirement4": "Một số",
+      "requirement5": "Một ký tự đặc biệt",
+      "invalidToken": "Liên kết đặt lại không hợp lệ",
+      "invalidTokenMessage": "Liên kết đặt lại mật khẩu này không hợp lệ hoặc đã hết hạn.",
+      "requestNew": "Yêu cầu liên kết mới",
+      "successTitle": "Đặt lại mật khẩu thành công!",
+      "successMessage": "Mật khẩu của bạn đã được đặt lại thành công. Đang chuyển đến đăng nhập...",
+      "copyright": "© 2025 ICS Security. Bản quyền thuộc về.",
+      "passwordRequired": "Vui lòng nhập mật khẩu",
+      "passwordInvalid": "Mật khẩu không đáp ứng yêu cầu",
+      "confirmRequired": "Vui lòng xác nhận mật khẩu",
+      "passwordMismatch": "Mật khẩu không khớp"
+    }
   }
 }

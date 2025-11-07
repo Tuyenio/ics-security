@@ -178,5 +178,63 @@
       "sitemap": "网站地图"
     },
     "copyright": "ICS网络安全。版权所有。"
+  },
+  "auth": {
+    "login": {
+      "title": "欢迎回来",
+      "subtitle": "登录以访问ICS安全平台",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "your.email@company.com",
+      "password": "密码",
+      "passwordPlaceholder": "输入您的密码",
+      "rememberMe": "记住我",
+      "forgotPassword": "忘记密码？",
+      "signIn": "登录",
+      "signingIn": "登录中...",
+      "securedBy": "安全保障由",
+      "platform": "ICS安全平台",
+      "copyright": "© 2025 ICS。版权所有。"
+    },
+    "forgotPassword": {
+      "title": "忘记密码？",
+      "subtitle": "别担心，我们将向您发送重置说明。",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "输入您的电子邮件地址",
+      "sendReset": "发送重置链接",
+      "sending": "发送中...",
+      "backToLogin": "返回登录",
+      "success": "检查您的电子邮件",
+      "successMessage": "我们已将密码重置链接发送至",
+      "successInstruction": "请检查您的收件箱并按照说明重置密码。",
+      "copyright": "© 2025 ICS安全。版权所有。",
+      "emailRequired": "请输入电子邮件",
+      "emailInvalid": "请输入有效的电子邮件地址"
+    },
+    "resetPassword": {
+      "title": "重置密码",
+      "subtitle": "在下方输入您的新密码",
+      "newPassword": "新密码",
+      "newPasswordPlaceholder": "输入新密码",
+      "confirmPassword": "确认密码",
+      "confirmPasswordPlaceholder": "确认新密码",
+      "resetPassword": "重置密码",
+      "resetting": "重置中...",
+      "requirements": "密码必须包含：",
+      "requirement1": "至少8个字符",
+      "requirement2": "一个大写字母",
+      "requirement3": "一个小写字母",
+      "requirement4": "一个数字",
+      "requirement5": "一个特殊字符",
+      "invalidToken": "无效的重置链接",
+      "invalidTokenMessage": "此密码重置链接无效或已过期。",
+      "requestNew": "请求新链接",
+      "successTitle": "密码重置成功！",
+      "successMessage": "您的密码已成功重置。正在转到登录页面...",
+      "copyright": "© 2025 ICS安全。版权所有。",
+      "passwordRequired": "请输入密码",
+      "passwordInvalid": "密码不符合要求",
+      "confirmRequired": "请确认您的密码",
+      "passwordMismatch": "密码不匹配"
+    }
   }
 }

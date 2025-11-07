@@ -8,11 +8,13 @@ import Logo from '@/components/Logo';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Link from 'next/link';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 
-export default function ResetPasswordPage() {
+function ResetPasswordContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     password: '',
@@ -25,11 +27,11 @@ export default function ResetPasswordPage() {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const passwordRequirements = [
-    { regex: /.{8,}/, text: 'At least 8 characters' },
-    { regex: /[A-Z]/, text: 'One uppercase letter' },
-    { regex: /[a-z]/, text: 'One lowercase letter' },
-    { regex: /[0-9]/, text: 'One number' },
-    { regex: /[^A-Za-z0-9]/, text: 'One special character' },
+    { regex: /.{8,}/, text: t('auth.resetPassword.requirement1') },
+    { regex: /[A-Z]/, text: t('auth.resetPassword.requirement2') },
+    { regex: /[a-z]/, text: t('auth.resetPassword.requirement3') },
+    { regex: /[0-9]/, text: t('auth.resetPassword.requirement4') },
+    { regex: /[^A-Za-z0-9]/, text: t('auth.resetPassword.requirement5') },
   ];
 
   const validatePassword = (password: string) => {
@@ -41,15 +43,15 @@ export default function ResetPasswordPage() {
     const newErrors: { password?: string; confirmPassword?: string } = {};
 
     if (!formData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = t('auth.resetPassword.passwordRequired');
     } else if (!validatePassword(formData.password)) {
-      newErrors.password = 'Password does not meet requirements';
+      newErrors.password = t('auth.resetPassword.passwordInvalid');
     }
 
     if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your password';
+      newErrors.confirmPassword = t('auth.resetPassword.confirmRequired');
     } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+      newErrors.confirmPassword = t('auth.resetPassword.passwordMismatch');
     }
 
     setErrors(newErrors);
@@ -109,13 +111,13 @@ export default function ResetPasswordPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/20 mb-6">
             <X className="w-8 h-8 text-red-400" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-4">Invalid Reset Link</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{t('auth.resetPassword.invalidToken')}</h2>
           <p className="text-slate-400 mb-6">
-            This password reset link is invalid or has expired.
+            {t('auth.resetPassword.invalidTokenMessage')}
           </p>
           <Link href="/auth/forgot-password">
             <Button variant="primary" className="w-full">
-              Request New Link
+              {t('auth.resetPassword.requestNew')}
             </Button>
           </Link>
         </div>
@@ -167,9 +169,9 @@ export default function ResetPasswordPage() {
           >
             <CheckCircle className="w-8 h-8 text-green-400" />
           </motion.div>
-          <h2 className="text-2xl font-bold text-white mb-4">Password Reset Successful!</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{t('auth.resetPassword.successTitle')}</h2>
           <p className="text-slate-400 mb-6">
-            Your password has been successfully reset. Redirecting to login...
+            {t('auth.resetPassword.successMessage')}
           </p>
         </motion.div>
       </div>
@@ -237,10 +239,10 @@ export default function ResetPasswordPage() {
           <div className="flex flex-col items-center mb-8">
             <Logo size="lg" />
             <h1 className="mt-6 text-3xl font-bold text-white text-center">
-              Reset Password
+              {t('auth.resetPassword.title')}
             </h1>
             <p className="mt-2 text-slate-400 text-center">
-              Enter your new password below
+              {t('auth.resetPassword.subtitle')}
             </p>
           </div>
 
@@ -248,8 +250,8 @@ export default function ResetPasswordPage() {
             <div className="relative">
               <Input
                 type={showPassword ? 'text' : 'password'}
-                label="New Password"
-                placeholder="Enter new password"
+                label={t('auth.resetPassword.newPassword')}
+                placeholder={t('auth.resetPassword.newPasswordPlaceholder')}
                 icon={<Lock className="w-5 h-5" />}
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -266,7 +268,7 @@ export default function ResetPasswordPage() {
 
             {/* Password Requirements */}
             <div className="bg-slate-800/50 rounded-lg p-4 space-y-2">
-              <p className="text-sm font-medium text-slate-300 mb-2">Password must contain:</p>
+              <p className="text-sm font-medium text-slate-300 mb-2">{t('auth.resetPassword.requirements')}</p>
               {passwordRequirements.map((req, index) => {
                 const isValid = req.regex.test(formData.password);
                 return (
@@ -289,8 +291,8 @@ export default function ResetPasswordPage() {
             <div className="relative">
               <Input
                 type={showConfirmPassword ? 'text' : 'password'}
-                label="Confirm Password"
-                placeholder="Confirm new password"
+                label={t('auth.resetPassword.confirmPassword')}
+                placeholder={t('auth.resetPassword.confirmPasswordPlaceholder')}
                 icon={<Lock className="w-5 h-5" />}
                 value={formData.confirmPassword}
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
@@ -312,17 +314,25 @@ export default function ResetPasswordPage() {
               size="lg"
               isLoading={isLoading}
             >
-              Reset Password
+              {t('auth.resetPassword.resetPassword')}
             </Button>
           </form>
 
           <div className="mt-8 pt-6 border-t border-slate-800">
             <p className="text-center text-xs text-slate-500">
-              © 2025 ICS Security. All Rights Reserved.
+              {t('auth.resetPassword.copyright')}
             </p>
           </div>
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <LanguageProvider>
+      <ResetPasswordContent />
+    </LanguageProvider>
   );
 }

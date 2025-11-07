@@ -8,9 +8,11 @@ import Logo from '@/components/Logo';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Link from 'next/link';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 
-export default function ForgotPasswordPage() {
+function ForgotPasswordContent() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -25,12 +27,12 @@ export default function ForgotPasswordPage() {
     setError('');
     
     if (!email) {
-      setError('Email is required');
+      setError(t('auth.forgotPassword.emailRequired'));
       return;
     }
     
     if (!validateEmail(email)) {
-      setError('Please enter a valid email address');
+      setError(t('auth.forgotPassword.emailInvalid'));
       return;
     }
 
@@ -105,18 +107,18 @@ export default function ForgotPasswordPage() {
             <CheckCircle className="w-8 h-8 text-green-400" />
           </motion.div>
           
-          <h2 className="text-2xl font-bold text-white mb-4">Check Your Email</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{t('auth.forgotPassword.success')}</h2>
           <p className="text-slate-400 mb-6">
-            We've sent a password reset link to <span className="text-white font-medium">{email}</span>
+            {t('auth.forgotPassword.successMessage')} <span className="text-white font-medium">{email}</span>
           </p>
           <p className="text-sm text-slate-500 mb-8">
-            Please check your inbox and follow the instructions to reset your password.
+            {t('auth.forgotPassword.successInstruction')}
           </p>
           
           <Link href="/auth/login">
             <Button variant="primary" className="w-full">
               <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Login
+              {t('auth.forgotPassword.backToLogin')}
             </Button>
           </Link>
         </motion.div>
@@ -187,10 +189,10 @@ export default function ForgotPasswordPage() {
           <div className="flex flex-col items-center mb-8">
             <Logo size="lg" />
             <h1 className="mt-6 text-3xl font-bold text-white text-center">
-              Forgot Password?
+              {t('auth.forgotPassword.title')}
             </h1>
             <p className="mt-2 text-slate-400 text-center">
-              No worries, we'll send you reset instructions.
+              {t('auth.forgotPassword.subtitle')}
             </p>
           </div>
 
@@ -198,8 +200,8 @@ export default function ForgotPasswordPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <Input
               type="email"
-              label="Email Address"
-              placeholder="Enter your email address"
+              label={t('auth.forgotPassword.email')}
+              placeholder={t('auth.forgotPassword.emailPlaceholder')}
               icon={<Mail className="w-5 h-5" />}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -216,7 +218,7 @@ export default function ForgotPasswordPage() {
               {!isLoading && (
                 <>
                   <Send className="mr-2 w-5 h-5" />
-                  Send Reset Link
+                  {t('auth.forgotPassword.sendReset')}
                 </>
               )}
             </Button>
@@ -227,7 +229,7 @@ export default function ForgotPasswordPage() {
             <Link href="/auth/login">
               <Button variant="ghost" className="w-full">
                 <ArrowLeft className="mr-2 w-5 h-5" />
-                Back to Login
+                {t('auth.forgotPassword.backToLogin')}
               </Button>
             </Link>
           </div>
@@ -235,11 +237,19 @@ export default function ForgotPasswordPage() {
           {/* Footer */}
           <div className="mt-8 pt-6 border-t border-slate-800">
             <p className="text-center text-xs text-slate-500">
-              © 2025 ICS Security. All Rights Reserved.
+              {t('auth.forgotPassword.copyright')}
             </p>
           </div>
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function ForgotPasswordPage() {
+  return (
+    <LanguageProvider>
+      <ForgotPasswordContent />
+    </LanguageProvider>
   );
 }

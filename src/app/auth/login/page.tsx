@@ -8,9 +8,11 @@ import Logo from '@/components/Logo';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Link from 'next/link';
+import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -163,7 +165,7 @@ export default function LoginPage() {
               transition={{ delay: 0.3 }}
               className="mt-6 text-3xl font-bold text-white text-center"
             >
-              Welcome Back
+              {t('auth.login.title')}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -171,7 +173,7 @@ export default function LoginPage() {
               transition={{ delay: 0.4 }}
               className="mt-2 text-slate-400 text-center"
             >
-              Sign in to access ICS Security Platform
+              {t('auth.login.subtitle')}
             </motion.p>
           </div>
 
@@ -196,8 +198,8 @@ export default function LoginPage() {
             >
               <Input
                 type="email"
-                label="Email Address"
-                placeholder="your.email@company.com"
+                label={t('auth.login.email')}
+                placeholder={t('auth.login.emailPlaceholder')}
                 icon={<Mail className="w-5 h-5" />}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -212,8 +214,8 @@ export default function LoginPage() {
             >
               <Input
                 type="password"
-                label="Password"
-                placeholder="Enter your password"
+                label={t('auth.login.password')}
+                placeholder={t('auth.login.passwordPlaceholder')}
                 icon={<Lock className="w-5 h-5" />}
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -232,13 +234,13 @@ export default function LoginPage() {
                   type="checkbox"
                   className="w-4 h-4 rounded border-slate-700 bg-slate-800 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900"
                 />
-                <span className="text-sm text-slate-400">Remember me</span>
+                <span className="text-sm text-slate-400">{t('auth.login.rememberMe')}</span>
               </label>
               <Link
                 href="/auth/forgot-password"
                 className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
               >
-                Forgot password?
+                {t('auth.login.forgotPassword')}
               </Link>
             </motion.div>
 
@@ -256,7 +258,7 @@ export default function LoginPage() {
               >
                 {!isLoading && (
                   <>
-                    Sign In
+                    {t('auth.login.signIn')}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
@@ -272,15 +274,23 @@ export default function LoginPage() {
             className="mt-8 pt-6 border-t border-slate-800"
           >
             <p className="text-center text-sm text-slate-400">
-              Secured by{' '}
-              <span className="text-cyan-400 font-semibold">ICS Security Platform</span>
+              {t('auth.login.securedBy')}{' '}
+              <span className="text-cyan-400 font-semibold">{t('auth.login.platform')}</span>
             </p>
             <p className="text-center text-xs text-slate-500 mt-2">
-              © 2025 ICS. All Rights Reserved.
+              {t('auth.login.copyright')}
             </p>
           </motion.div>
         </div>
       </motion.div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <LanguageProvider>
+      <LoginContent />
+    </LanguageProvider>
   );
 }

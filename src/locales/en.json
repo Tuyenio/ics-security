@@ -178,5 +178,63 @@
       "sitemap": "Sitemap"
     },
     "copyright": "ICS Cyber Security. All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to access ICS Security Platform",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@company.com",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "securedBy": "Secured by",
+      "platform": "ICS Security Platform",
+      "copyright": "© 2025 ICS. All Rights Reserved."
+    },
+    "forgotPassword": {
+      "title": "Forgot Password?",
+      "subtitle": "No worries, we'll send you reset instructions.",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "sendReset": "Send Reset Link",
+      "sending": "Sending...",
+      "backToLogin": "Back to Login",
+      "success": "Check Your Email",
+      "successMessage": "We've sent a password reset link to",
+      "successInstruction": "Please check your inbox and follow the instructions to reset your password.",
+      "copyright": "© 2025 ICS Security. All Rights Reserved.",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "subtitle": "Enter your new password below",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter new password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm new password",
+      "resetPassword": "Reset Password",
+      "resetting": "Resetting...",
+      "requirements": "Password must contain:",
+      "requirement1": "At least 8 characters",
+      "requirement2": "One uppercase letter",
+      "requirement3": "One lowercase letter",
+      "requirement4": "One number",
+      "requirement5": "One special character",
+      "invalidToken": "Invalid Reset Link",
+      "invalidTokenMessage": "This password reset link is invalid or has expired.",
+      "requestNew": "Request New Link",
+      "successTitle": "Password Reset Successful!",
+      "successMessage": "Your password has been successfully reset. Redirecting to login...",
+      "copyright": "© 2025 ICS Security. All Rights Reserved.",
+      "passwordRequired": "Password is required",
+      "passwordInvalid": "Password does not meet requirements",
+      "confirmRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    }
   }
 }
