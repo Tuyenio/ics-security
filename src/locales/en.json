@@ -184,7 +184,7 @@
       "title": "Welcome Back",
       "subtitle": "Sign in to access ICS Security Platform",
       "email": "Email Address",
-      "emailPlaceholder": "your.email@company.com",
+      "emailPlaceholder": "example@email.com",
       "password": "Password",
       "passwordPlaceholder": "Enter your password",
       "rememberMe": "Remember me",

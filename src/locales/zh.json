@@ -184,7 +184,7 @@
       "title": "欢迎回来",
       "subtitle": "登录以访问ICS安全平台",
       "email": "电子邮件地址",
-      "emailPlaceholder": "your.email@company.com",
+      "emailPlaceholder": "example@email.com",
       "password": "密码",
       "passwordPlaceholder": "输入您的密码",
       "rememberMe": "记住我",

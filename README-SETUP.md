@@ -15,16 +15,12 @@ File `.env.local`:
 NEXT_PUBLIC_APP_NAME="Dashboard Quản Lý"
 NEXT_PUBLIC_APP_VERSION="1.0.0"
 
-# API Configuration
+# API Configuration (Backend)
 NEXT_PUBLIC_API_URL=http://localhost:3001/api
-
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=https://myjjfkwbpbdgmkocobkk.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15ampma3dicGJkZ21rb2NvYmtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjY5MjksImV4cCI6MjA3NzkwMjkyOX0.jFplWm7fuduOtT6vmcsY9jFNQISF50i5BEK8xy3FmUA
+NEXT_PUBLIC_BACKEND_URL=http://localhost:3001/api
 
 # Project Information
 NEXT_PUBLIC_PROJECT_NAME=ics-security
-NEXT_PUBLIC_PROJECT_ID=myjjfkwbpbdgmkocobkk
 ```
 
 ## Cài Đặt và Chạy
