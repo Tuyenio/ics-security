@@ -11,6 +11,17 @@ import Link from 'next/link';
 import { LanguageProvider, useLanguage } from '@/contexts/LanguageContext';
 
 function ResetPasswordContent() {
+  // Sinh particle động phía client để tránh lỗi hydration
+  const [particles, setParticles] = useState([]);
+  useEffect(() => {
+    const arr = Array.from({ length: 15 }, () => ({
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2,
+    }));
+    setParticles(arr);
+  }, []);
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
@@ -209,22 +220,22 @@ function ResetPasswordContent() {
           }}
         />
         {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-blue-500/30 rounded-full"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: `${p.top}%`,
+              left: `${p.left}%`,
             }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 1, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: p.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: p.delay,
             }}
           />
         ))}
