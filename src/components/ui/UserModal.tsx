@@ -191,7 +191,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       type="email"
                       placeholder="user@example.com"
                       icon={<Mail className="w-5 h-5" />}
-                      value={formData.email}
+                      value={formData.email ?? ''}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       error={errors.email}
                       disabled={mode === 'edit'}
@@ -203,7 +203,7 @@ const UserModal: React.FC<UserModalProps> = ({
                         type="password"
                         placeholder="••••••••"
                         icon={<Key className="w-5 h-5" />}
-                        value={formData.password}
+                        value={formData.password ?? ''}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         error={errors.password}
                       />
@@ -213,7 +213,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="First Name"
                       placeholder="John"
                       icon={<User className="w-5 h-5" />}
-                      value={formData.firstName}
+                      value={formData.firstName ?? ''}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                       error={errors.firstName}
                     />
@@ -222,7 +222,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Last Name"
                       placeholder="Doe"
                       icon={<User className="w-5 h-5" />}
-                      value={formData.lastName}
+                      value={formData.lastName ?? ''}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                       error={errors.lastName}
                     />
@@ -234,7 +234,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       <div className="relative">
                         <Shield className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                         <select
-                          value={formData.role}
+                          value={formData.role ?? ''}
                           onChange={(e) => setFormData({ ...formData, role: e.target.value as 'admin' | 'user' })}
                           className="w-full pl-10 pr-4 py-2.5 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
@@ -248,7 +248,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Country"
                       placeholder="Vietnam"
                       icon={<MapPin className="w-5 h-5" />}
-                      value={formData.country}
+                      value={formData.country ?? ''}
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                     />
 
@@ -256,7 +256,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Company Name"
                       placeholder="Tech Corp"
                       icon={<Building2 className="w-5 h-5" />}
-                      value={formData.companyName}
+                      value={formData.companyName ?? ''}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                     />
 
@@ -264,7 +264,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Position"
                       placeholder="Developer"
                       icon={<User className="w-5 h-5" />}
-                      value={formData.position}
+                      value={formData.position ?? ''}
                       onChange={(e) => setFormData({ ...formData, position: e.target.value })}
                     />
 
@@ -272,7 +272,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Mobile"
                       placeholder="+84 xxx xxx xxx"
                       icon={<Smartphone className="w-5 h-5" />}
-                      value={formData.mobile}
+                      value={formData.mobile ?? ''}
                       onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                     />
 
@@ -280,7 +280,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="Android Times"
                       type="number"
                       placeholder="50"
-                      value={formData.androidTimes.toString()}
+                      value={formData.androidTimes?.toString() ?? ''}
                       onChange={(e) => setFormData({ ...formData, androidTimes: parseInt(e.target.value) || 0 })}
                     />
 
@@ -288,7 +288,7 @@ const UserModal: React.FC<UserModalProps> = ({
                       label="iOS Times"
                       type="number"
                       placeholder="50"
-                      value={formData.iosTimes.toString()}
+                      value={formData.iosTimes?.toString() ?? ''}
                       onChange={(e) => setFormData({ ...formData, iosTimes: parseInt(e.target.value) || 0 })}
                     />
                   </div>
